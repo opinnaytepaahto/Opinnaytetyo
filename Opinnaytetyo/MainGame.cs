@@ -38,14 +38,10 @@ namespace Opinnaytetyo
             //Create all entities
             playerTexture = Content.Load<Texture2D>("player.png");
             player = new Player();
+            player.init(playerTexture, new Vector2(0.0f, 0.0f));
 
             //Add all entities to entity list
             entities.Add(player);
-
-            foreach(Entity e in entities)
-            {
-                e.init(playerTexture, new Vector2(0, 0));
-            }
 
             base.Initialize();
         }

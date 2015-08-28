@@ -10,9 +10,16 @@ namespace Opinnaytetyo
 {
     class Player : Entity
     {
-        public void init()
+        private float speed;
+        private Vector2 velocity;
+
+        public void init(Texture2D texture, Vector2 position)
         {
-            base.init(texture, position);
+            this.texture = texture;
+            textureRectangle = texture.Bounds;
+
+            speed = 100.0f;
+            velocity = new Vector2(0.0f, 0.0f);
         }
 
         public void update()
@@ -21,12 +28,33 @@ namespace Opinnaytetyo
 
             if (InputManager.isKeyDown(Keys.A) || InputManager.isKeyDown(Keys.Left))
             {
-                position.X -= 500.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                velocity.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
             if (InputManager.isKeyDown(Keys.D) || InputManager.isKeyDown(Keys.Right))
             {
-                position.X += 500.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                velocity.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
+
+            if (velocity.X > 0)
+            {
+                velocity.X -= 30.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (velocity.X < 0.01f)
+                {
+                    velocity.X = 0;
+                }
+            }
+            if (velocity.X < 0)
+            {
+                velocity.X += 30.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (velocity.X > -0.01f)
+                {
+                    velocity.X = 0;
+                }
+            }
+
+            position += velocity;
         }
 
         public void render()

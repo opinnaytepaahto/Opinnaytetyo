@@ -6,3 +6,11 @@ c:\users\olli\documents\visual studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\ob
 c:\users\olli\documents\visual studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.exe
 c:\users\olli\documents\visual studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.pdb
 C:\Users\Olli\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\player.png
+C:\Users\Ranger\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.exe
+C:\Users\Ranger\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.pdb
+C:\Users\Ranger\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\player.png
+C:\Users\Ranger\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Opinnaytetyo.exe
+C:\Users\Ranger\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Opinnaytetyo.pdb
+C:\Users\Ranger\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\Ranger\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\Ranger\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.csprojResolveAssemblyReference.cache

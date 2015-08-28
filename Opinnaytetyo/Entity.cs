@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Opinnaytetyo
 {
-    class Entity
+    abstract class Entity
     {
         public Vector2 position;
 
@@ -16,14 +16,6 @@ namespace Opinnaytetyo
 
         protected SpriteBatch batch;
         protected GameTime gameTime;
-
-        public void init(Texture2D texture, Vector2 position)
-        {
-            this.position = position;
-            this.texture = texture;
-
-            textureRectangle = texture.Bounds;
-        }
 
         public void update(GameTime gameTime)
         {
