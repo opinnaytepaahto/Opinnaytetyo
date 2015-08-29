@@ -32,5 +32,15 @@ namespace Opinnaytetyo
 
             batch.Draw(texture, position, textureRectangle, Color.White);
         }
+
+        public int getWidth()
+        {
+            return textureRectangle.Width;
+        }
+
+        public int getHeight()
+        {
+            return textureRectangle.Height;
+        }
     }
 }

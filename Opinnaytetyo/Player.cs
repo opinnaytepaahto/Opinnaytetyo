@@ -19,11 +19,14 @@ namespace Opinnaytetyo
         public void init(Texture2D texture, Vector2 position)
         {
             this.texture = texture;
+            this.position = position;
+
             textureRectangle = texture.Bounds;
 
             speed = 100.0f;
             friction = 30.0f;
             gravity = 30.0f;
+
             velocity = new Vector2(0.0f, 0.0f);
         }
 
@@ -39,7 +42,6 @@ namespace Opinnaytetyo
             {
                 velocity.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
-
             if (InputManager.isKeyDown(Keys.W) || InputManager.isKeyDown(Keys.Up))
             {
                 velocity.Y -= 100.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
