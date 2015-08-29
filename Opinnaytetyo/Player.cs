@@ -16,6 +16,9 @@ namespace Opinnaytetyo
 
         private Vector2 velocity;
 
+        private SpriteEffects flipEffect;
+        private bool flipped;
+
         public void init(Texture2D texture, Vector2 position)
         {
             this.texture = texture;
@@ -23,11 +26,14 @@ namespace Opinnaytetyo
 
             textureRectangle = texture.Bounds;
 
-            speed = 100.0f;
-            friction = 30.0f;
+            speed = 70.0f;
+            friction = 50.0f;
             gravity = 30.0f;
 
             velocity = new Vector2(0.0f, 0.0f);
+
+            flipEffect = SpriteEffects.FlipHorizontally;
+            flipped = false;
         }
 
         public void update()
@@ -49,6 +55,7 @@ namespace Opinnaytetyo
 
             if (velocity.X > 0)
             {
+                flipped = false;
                 velocity.X -= friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                 if (velocity.X < 0.01f)
@@ -58,6 +65,7 @@ namespace Opinnaytetyo
             }
             if (velocity.X < 0)
             {
+                flipped = true;
                 velocity.X += friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                 if (velocity.X > -0.01f)
@@ -73,9 +81,18 @@ namespace Opinnaytetyo
             keepOnScreen();
         }
 
-        public void render()
+        public override void render(SpriteBatch batch)
         {
-            base.render(batch);
+            this.batch = batch;
+
+            if (flipped)
+            {
+                batch.Draw(texture, position, textureRectangle, Color.White, 0.0f, new Vector2(0.0f), 1.0f, flipEffect, 0.0f);
+            }
+            else
+            {
+                batch.Draw(texture, position, textureRectangle, Color.White);
+            }
         }
 
         private void keepOnScreen()

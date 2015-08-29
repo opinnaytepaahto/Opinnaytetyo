@@ -119,6 +119,8 @@ namespace Opinnaytetyo
                 e.render(spriteBatch);
             }
 
+            player.render(spriteBatch);
+
             // End drawing
             spriteBatch.End();
 

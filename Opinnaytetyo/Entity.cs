@@ -17,7 +17,7 @@ namespace Opinnaytetyo
         protected SpriteBatch batch;
         protected GameTime gameTime;
 
-        public void update(GameTime gameTime)
+        public virtual void update(GameTime gameTime)
         {
             this.gameTime = gameTime;
 
@@ -26,7 +26,7 @@ namespace Opinnaytetyo
             textureRectangle = texture.Bounds;
         }
 
-        public void render(SpriteBatch batch)
+        public virtual void render(SpriteBatch batch)
         {
             this.batch = batch;
 
