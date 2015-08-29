@@ -19,5 +19,10 @@ namespace Opinnaytetyo
         {
             return kbstate.IsKeyDown(key);
         }
+
+        public static bool isKeyUp(Keys key)
+        {
+            return kbstate.IsKeyUp(key);
+        }
     }
 }

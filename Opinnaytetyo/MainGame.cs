@@ -15,6 +15,10 @@ namespace Opinnaytetyo
 
         private ArrayList entities = new ArrayList();
 
+        //Global static variables
+        public static int windowWidth;
+        public static int windowHeight;
+
         //Entities
         private Texture2D playerTexture;
         private Player player;
@@ -35,12 +39,16 @@ namespace Opinnaytetyo
         {
             // TODO: Add your initialization logic here
 
-            //Create all entities
+            // Initialize all global static variables
+            windowWidth = graphics.GraphicsDevice.Viewport.Width;
+            windowHeight = graphics.GraphicsDevice.Viewport.Height;
+
+            // Create all entities
             playerTexture = Content.Load<Texture2D>("player.png");
             player = new Player();
             player.init(playerTexture, new Vector2(0.0f, 0.0f));
 
-            //Add all entities to entity list
+            // Add all entities to entity list
             entities.Add(player);
 
             base.Initialize();
@@ -81,7 +89,7 @@ namespace Opinnaytetyo
 
             InputManager.update();
 
-            //Update all entities
+            // Update all entities
             foreach(Entity e in entities)
             {
                 e.update(gameTime);
@@ -102,16 +110,16 @@ namespace Opinnaytetyo
 
             // TODO: Add your drawing code here
 
-            //Start drawing
+            // Start drawing
             spriteBatch.Begin();
 
-            //Render all entities
+            // Render all entities
             foreach(Entity e in entities)
             {
                 e.render(spriteBatch);
             }
 
-            //End drawing
+            // End drawing
             spriteBatch.End();
 
             base.Draw(gameTime);

@@ -11,6 +11,8 @@ namespace Opinnaytetyo
     class Player : Entity
     {
         private float speed;
+        private float friction;
+
         private Vector2 velocity;
 
         public void init(Texture2D texture, Vector2 position)
@@ -19,6 +21,7 @@ namespace Opinnaytetyo
             textureRectangle = texture.Bounds;
 
             speed = 100.0f;
+            friction = 30.0f;
             velocity = new Vector2(0.0f, 0.0f);
         }
 
@@ -37,7 +40,7 @@ namespace Opinnaytetyo
 
             if (velocity.X > 0)
             {
-                velocity.X -= 30.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                velocity.X -= friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                 if (velocity.X < 0.01f)
                 {
@@ -46,7 +49,7 @@ namespace Opinnaytetyo
             }
             if (velocity.X < 0)
             {
-                velocity.X += 30.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                velocity.X += friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                 if (velocity.X > -0.01f)
                 {
@@ -55,11 +58,27 @@ namespace Opinnaytetyo
             }
 
             position += velocity;
+
+            keepOnScreen();
         }
 
         public void render()
         {
             base.render(batch);
+        }
+
+        private void keepOnScreen()
+        {
+            if (position.X < 0)
+            {
+                velocity.X = 0;
+                position.X = 0;
+            }
+            if (position.X > MainGame.windowWidth - textureRectangle.Width)
+            {
+                velocity.X = 0;
+                position.X = MainGame.windowWidth - textureRectangle.Width;
+            }
         }
     }
 }
