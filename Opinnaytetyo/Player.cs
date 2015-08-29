@@ -40,6 +40,11 @@ namespace Opinnaytetyo
                 velocity.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
+            if (InputManager.isKeyDown(Keys.W) || InputManager.isKeyDown(Keys.Up))
+            {
+                velocity.Y -= 100.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+
             if (velocity.X > 0)
             {
                 velocity.X -= friction * (float)gameTime.ElapsedGameTime.TotalSeconds;

@@ -22,3 +22,11 @@ C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytety
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\MonoGame.Framework.dll
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\OpenTK.dll
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.csprojResolveAssemblyReference.cache
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.exe
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.pdb
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\player.png
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Opinnaytetyo.exe
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Opinnaytetyo.pdb
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.csprojResolveAssemblyReference.cache
