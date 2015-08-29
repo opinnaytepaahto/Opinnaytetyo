@@ -12,6 +12,7 @@ namespace Opinnaytetyo
     {
         private float speed;
         private float friction;
+        private float gravity;
 
         private Vector2 velocity;
 
@@ -22,6 +23,7 @@ namespace Opinnaytetyo
 
             speed = 100.0f;
             friction = 30.0f;
+            gravity = 30.0f;
             velocity = new Vector2(0.0f, 0.0f);
         }
 
@@ -57,6 +59,8 @@ namespace Opinnaytetyo
                 }
             }
 
+            velocity.Y += gravity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             position += velocity;
 
             keepOnScreen();
@@ -78,6 +82,11 @@ namespace Opinnaytetyo
             {
                 velocity.X = 0;
                 position.X = MainGame.windowWidth - textureRectangle.Width;
+            }
+            if (position.Y > MainGame.windowHeight - textureRectangle.Height)
+            {
+                velocity.Y = 0;
+                position.Y = MainGame.windowHeight - textureRectangle.Height;
             }
         }
     }
