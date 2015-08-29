@@ -13,6 +13,7 @@ namespace Opinnaytetyo
         private float speed;
         private float friction;
         private float gravity;
+        private float cooldown;
 
         private Vector2 velocity;
 
@@ -29,6 +30,7 @@ namespace Opinnaytetyo
             speed = 70.0f;
             friction = 50.0f;
             gravity = 30.0f;
+            cooldown = 0.0f;
 
             velocity = new Vector2(0.0f, 0.0f);
 
@@ -48,9 +50,10 @@ namespace Opinnaytetyo
             {
                 velocity.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
-            if (InputManager.isKeyDown(Keys.W) || InputManager.isKeyDown(Keys.Up))
+            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up))&& cooldown == 0)
             {
-                velocity.Y -= 100.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                cooldown = 0.5f;
+                velocity.Y -= 500.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
             if (velocity.X > 0)
@@ -77,6 +80,12 @@ namespace Opinnaytetyo
             velocity.Y += gravity * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             position += velocity;
+            cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (cooldown <=0)
+            {
+                cooldown = 0;
+            }
 
             keepOnScreen();
         }
