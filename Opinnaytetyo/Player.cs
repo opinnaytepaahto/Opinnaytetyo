@@ -27,7 +27,7 @@ namespace Opinnaytetyo
             textureRectangle = texture.Bounds;
 
             speed = 100.0f;
-            friction = 90.9f;
+            friction = 92.5f;
             gravity = 30.0f;
             cooldown = 0.0f;
 
