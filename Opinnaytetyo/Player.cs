@@ -12,10 +12,7 @@ namespace Opinnaytetyo
     {
         private float speed;
         private float friction;
-        private float gravity;
         private float cooldown;
-
-        private Vector2 velocity;
 
         private SpriteEffects flipEffect;
         private bool flipped;
@@ -50,7 +47,7 @@ namespace Opinnaytetyo
             {
                 velocity.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
-            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up))&& cooldown == 0)
+            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)) && cooldown == 0)
             {
                 cooldown = 0.5f;
                 velocity.Y -= 500.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -82,7 +79,7 @@ namespace Opinnaytetyo
             position += velocity;
             cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (cooldown <=0)
+            if (cooldown <= 0)
             {
                 cooldown = 0;
             }
@@ -96,11 +93,11 @@ namespace Opinnaytetyo
 
             if (flipped)
             {
-                batch.Draw(texture, position, textureRectangle, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
+                batch.Draw(texture, position, null, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
             }
             else
             {
-                batch.Draw(texture, position, textureRectangle, Color.White);
+                batch.Draw(texture, position, null, Color.White);
             }
         }
 

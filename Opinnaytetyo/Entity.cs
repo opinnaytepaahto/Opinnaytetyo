@@ -10,6 +10,9 @@ namespace Opinnaytetyo
     abstract class Entity
     {
         public Vector2 position;
+        public Vector2 velocity;
+
+        public float gravity;
 
         public Texture2D texture;
         public Rectangle textureRectangle;
@@ -23,14 +26,15 @@ namespace Opinnaytetyo
 
             textureRectangle.X = (int)position.X;
             textureRectangle.Y = (int)position.Y;
-            textureRectangle = texture.Bounds;
+            textureRectangle.Width = texture.Width;
+            textureRectangle.Height = texture.Height;
         }
 
         public virtual void render(SpriteBatch batch)
         {
             this.batch = batch;
 
-            batch.Draw(texture, position, textureRectangle, Color.White);
+            batch.Draw(texture, position, null, Color.White);
         }
 
         public int getWidth()
@@ -41,6 +45,11 @@ namespace Opinnaytetyo
         public int getHeight()
         {
             return textureRectangle.Height;
+        }
+
+        public Rectangle getBounds()
+        {
+            return textureRectangle;
         }
     }
 }

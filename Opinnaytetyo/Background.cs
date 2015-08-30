@@ -25,8 +25,6 @@ namespace Opinnaytetyo
             backImgHeight = 1440.0f;
 
             scale = new Vector2(MainGame.windowWidth / backImgWidth, MainGame.windowHeight / backImgHeight);
-            Console.WriteLine(MainGame.windowWidth / backImgWidth);
-            Console.WriteLine(scale.X + ", " + scale.Y);
         }
 
         public override void render(SpriteBatch spriteBatch)

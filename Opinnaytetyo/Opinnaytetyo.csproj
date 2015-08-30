@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Background.cs" />
+    <Compile Include="CollisionManager.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="MainGame.cs" />
@@ -62,7 +63,9 @@
     <Content Include="Content\palmuict.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\platform.png" />
+    <Content Include="Content\platform.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\player.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
