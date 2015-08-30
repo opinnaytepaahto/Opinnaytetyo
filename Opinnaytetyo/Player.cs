@@ -39,7 +39,7 @@ namespace Opinnaytetyo
         {
             base.update(gameTime);
 
-            if (InputManager.isKeyDown(Keys.A) || InputManager.isKeyDown(Keys.Left))
+            if (InputManager.isKeyDown(Keys.A) || InputManager.isKeyDown(Keys.Left) && !collision)
             {
                 velocity.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
@@ -76,13 +76,14 @@ namespace Opinnaytetyo
 
             velocity.Y += gravity * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            position += velocity;
             cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (cooldown <= 0)
             {
                 cooldown = 0;
             }
+
+            position += velocity;
 
             keepOnScreen();
         }
