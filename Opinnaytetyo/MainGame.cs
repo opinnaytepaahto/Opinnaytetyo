@@ -16,12 +16,15 @@ namespace Opinnaytetyo
         private ArrayList entities = new ArrayList();
 
         //Global static variables
-        public static int windowWidth;
-        public static int windowHeight;
+        public static float windowWidth;
+        public static float windowHeight;
 
         //Entities
         private Texture2D playerTexture;
         private Player player;
+
+        private Texture2D backgroundImage;
+        private Background background;
 
         public MainGame()
         {
@@ -48,8 +51,13 @@ namespace Opinnaytetyo
             player = new Player();
             player.init(playerTexture, new Vector2(0.0f, windowHeight - player.getWidth()));
 
+            backgroundImage = Content.Load<Texture2D>("palmuict.png");
+            background = new Background();
+            background.init(backgroundImage, new Vector2(0.0f, 0.0f));
+
             // Add all entities to entity list
             entities.Add(player);
+            entities.Add(background);
 
             base.Initialize();
         }
@@ -119,6 +127,7 @@ namespace Opinnaytetyo
                 e.render(spriteBatch);
             }
 
+            background.render(spriteBatch);
             player.render(spriteBatch);
 
             // End drawing

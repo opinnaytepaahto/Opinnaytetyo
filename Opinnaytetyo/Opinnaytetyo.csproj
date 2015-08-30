@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Background.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="MainGame.cs" />

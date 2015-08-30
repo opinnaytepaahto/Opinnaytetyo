@@ -31,3 +31,4 @@ C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Mo
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\OpenTK.dll
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.csprojResolveAssemblyReference.cache
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\palmuict.png
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\palmuict.png

@@ -96,7 +96,7 @@ namespace Opinnaytetyo
 
             if (flipped)
             {
-                batch.Draw(texture, position, textureRectangle, Color.White, 0.0f, new Vector2(0.0f), 1.0f, flipEffect, 0.0f);
+                batch.Draw(texture, position, textureRectangle, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
             }
             else
             {
