@@ -114,10 +114,10 @@ namespace Opinnaytetyo
                 velocity.X = 0;
                 position.X = MainGame.windowWidth - textureRectangle.Width;
             }
-            if (position.Y > MainGame.windowHeight - textureRectangle.Height)
+            if (position.Y > MainGame.windowHeight - textureRectangle.Height - 133)
             {
                 velocity.Y = 0;
-                position.Y = MainGame.windowHeight - textureRectangle.Height;
+                position.Y = MainGame.windowHeight - textureRectangle.Height - 133;
             }
         }
     }

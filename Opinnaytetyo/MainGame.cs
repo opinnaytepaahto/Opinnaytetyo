@@ -27,7 +27,9 @@ namespace Opinnaytetyo
         private Background background;
 
         private Texture2D platformImage;
+        private Texture2D platformImage1;
         private Platform platform;
+        private Platform platform1;
 
         public MainGame()
         {
@@ -60,7 +62,11 @@ namespace Opinnaytetyo
 
             platformImage = Content.Load<Texture2D>("platform.png");
             platform = new Platform();
-            platform.init(platformImage, new Vector2(70.0f, 450.0f));
+            platform.init(platformImage, new Vector2(175.0f, 285.0f));
+
+            platformImage1 = Content.Load<Texture2D>("platform.png");
+            platform1 = new Platform();
+            platform1.init(platformImage1, new Vector2(475.0f, 285.0f));
 
             // Add all entities to entity list
             entities.Add(player);
@@ -112,8 +118,10 @@ namespace Opinnaytetyo
 
             player.update();
             platform.update();
+            platform1.update();
 
             CollisionManager.checkCollision(player, platform);
+            CollisionManager.checkCollision(player, platform1);
 
             base.Update(gameTime);
         }
@@ -140,6 +148,7 @@ namespace Opinnaytetyo
             background.render(spriteBatch);
             player.render(spriteBatch);
             platform.render(spriteBatch);
+            platform1.render(spriteBatch);
 
             // End drawing
             spriteBatch.End();
