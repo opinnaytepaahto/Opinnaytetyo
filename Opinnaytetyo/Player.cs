@@ -26,8 +26,8 @@ namespace Opinnaytetyo
 
             textureRectangle = texture.Bounds;
 
-            speed = 70.0f;
-            friction = 50.0f;
+            speed = 100.0f;
+            friction = 90.9f;
             gravity = 30.0f;
             cooldown = 0.0f;
 
@@ -91,6 +91,11 @@ namespace Opinnaytetyo
             if (cooldown <= 0)
             {
                 cooldown = 0;
+            }
+
+            if (velocity.X >= 100)
+            {
+                velocity.X = 100;
             }
 
             position += velocity;
