@@ -120,7 +120,7 @@ namespace Opinnaytetyo
             platform.update();
             platform1.update();
 
-            if (Player.collide)
+            if (player.collide)
             {
                 CollisionManager.checkCollision(player, platform);
                 CollisionManager.checkCollision(player, platform1);

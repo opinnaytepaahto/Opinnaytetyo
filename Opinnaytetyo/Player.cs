@@ -17,7 +17,7 @@ namespace Opinnaytetyo
         private SpriteEffects flipEffect;
         private bool flipped;
 
-        public static bool collide = true;
+        public bool collide = true;
     
         public void init(Texture2D texture, Vector2 position)
         {
@@ -54,7 +54,6 @@ namespace Opinnaytetyo
                 cooldown = 0.5f;
                 velocity.Y -= 500.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
-
             if (InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down))
             {
                 collide = false;
