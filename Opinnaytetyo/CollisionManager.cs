@@ -12,12 +12,12 @@ namespace Opinnaytetyo
         {
             if (entity1.getBounds().Intersects(entity2.getBounds()))
             {
-                if (entity1.velocity.X > 0 && !(entity1.velocity.Y > 0))
+                if (entity1.velocity.X > 0 && entity1.velocity.Y == 0)
                 {
                     entity1.velocity.X = 0;
                     entity1.position.X = entity2.getBounds().Left - entity1.getWidth();
                 }
-                if (entity1.velocity.X < 0 && !(entity1.velocity.Y > 0))
+                if (entity1.velocity.X < 0 && entity1.velocity.Y == 0)
                 {
                     entity1.velocity.X = 0;
                     entity1.position.X = entity2.getBounds().Right;
