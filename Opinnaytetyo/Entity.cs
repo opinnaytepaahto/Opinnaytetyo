@@ -14,8 +14,6 @@ namespace Opinnaytetyo
 
         public float gravity;
 
-        public bool collision;
-
         public Texture2D texture;
         public Rectangle textureRectangle;
 

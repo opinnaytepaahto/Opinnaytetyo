@@ -39,7 +39,7 @@ namespace Opinnaytetyo
         {
             base.update(gameTime);
 
-            if (InputManager.isKeyDown(Keys.A) || InputManager.isKeyDown(Keys.Left) && !collision)
+            if (InputManager.isKeyDown(Keys.A) || InputManager.isKeyDown(Keys.Left))
             {
                 velocity.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
