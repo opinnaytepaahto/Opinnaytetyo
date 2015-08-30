@@ -13,7 +13,6 @@ namespace Opinnaytetyo
         private float speed;
         private float friction;
         private float cooldown;
-        private float cooldown1;
 
         private SpriteEffects flipEffect;
         private bool flipped;
@@ -31,7 +30,6 @@ namespace Opinnaytetyo
             friction = 92.5f;
             gravity = 30.0f;
             cooldown = 0.0f;
-            cooldown1 = 0.0f;
 
             velocity = new Vector2(0.0f, 0.0f);
 
@@ -56,7 +54,7 @@ namespace Opinnaytetyo
                 cooldown = 0.5f;
                 velocity.Y -= 500.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
-            if ((InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down)))
+            if (InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down))
             {
                 collide = false;
             }
