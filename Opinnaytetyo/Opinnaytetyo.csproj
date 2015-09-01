@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bandit.png" />
+    <Content Include="Content\fireball.png" />
     <Content Include="Content\palmuict.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
