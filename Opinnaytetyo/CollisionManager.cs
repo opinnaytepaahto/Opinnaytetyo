@@ -25,7 +25,7 @@ namespace Opinnaytetyo
                 if (entity1.velocity.Y > 0)
                 {
                     entity1.velocity.Y = 0;
-                    entity1.position.Y = entity2.getBounds().Top - entity1.getHeight();
+                    entity1.position.Y = entity2.getBounds().Top - entity1.getHeight() + 0.7f;
                 }
             }
         }
