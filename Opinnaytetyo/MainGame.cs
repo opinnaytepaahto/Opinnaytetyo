@@ -13,23 +13,23 @@ namespace Opinnaytetyo
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private ArrayList entities = new ArrayList();
-
         //Global static variables
         public static float windowWidth;
         public static float windowHeight;
 
-        //Entities
-        private Texture2D playerTexture;
-        private Player player;
+        // State stuff
+        enum state
+        {
+            LOADING,
+            MENU,
+            PLAY,
+            EXIT
+        }
 
-        private Texture2D backgroundImage;
-        private Background background;
+        private state currentState;
 
-        private Texture2D platformImage;
-        private Texture2D platformImage1;
-        private Platform platform;
-        private Platform platform1;
+        // State entities
+        private MainMenu mainMenu;
 
         public MainGame()
         {
@@ -51,26 +51,19 @@ namespace Opinnaytetyo
             windowWidth = graphics.GraphicsDevice.Viewport.Width;
             windowHeight = graphics.GraphicsDevice.Viewport.Height;
 
-            // Create all entities
-            playerTexture = Content.Load<Texture2D>("player.png");
-            player = new Player();
-            player.init(playerTexture, new Vector2(0.0f, windowHeight - player.getWidth()));
+            currentState = state.LOADING;
 
-            backgroundImage = Content.Load<Texture2D>("palmuict.png");
-            background = new Background();
-            background.init(backgroundImage, new Vector2(0.0f, 0.0f));
+            switch(currentState)
+            {
+                case state.LOADING:
+                    break;
+                case state.MENU:
+                    mainMenu.init();
+                    break;
+                case state.PLAY:
+                    break;
 
-            platformImage = Content.Load<Texture2D>("platform.png");
-            platform = new Platform();
-            platform.init(platformImage, new Vector2(175.0f, 285.0f));
-
-            platformImage1 = Content.Load<Texture2D>("platform.png");
-            platform1 = new Platform();
-            platform1.init(platformImage1, new Vector2(475.0f, 285.0f));
-
-            // Add all entities to entity list
-            entities.Add(player);
-            entities.Add(background);
+            }
 
             base.Initialize();
         }
@@ -85,6 +78,18 @@ namespace Opinnaytetyo
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+
+            switch (currentState)
+            {
+                case state.LOADING:
+                    break;
+                case state.MENU:
+                    mainMenu.loadContent(Content);
+                    break;
+                case state.PLAY:
+                    break;
+
+            }
         }
 
         /// <summary>
@@ -94,6 +99,18 @@ namespace Opinnaytetyo
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+
+            switch (currentState)
+            {
+                case state.LOADING:
+                    break;
+                case state.MENU:
+                    mainMenu.unloadContent();
+                    break;
+                case state.PLAY:
+                    break;
+
+            }
         }
 
         /// <summary>
@@ -108,24 +125,18 @@ namespace Opinnaytetyo
 
             // TODO: Add your update logic here
 
-            InputManager.update();
-
-            // Update all entities
-            foreach(Entity e in entities)
+            switch (currentState)
             {
-                e.update(gameTime);
+                case state.LOADING:
+                    break;
+                case state.MENU:
+                    mainMenu.update(gameTime);
+                    break;
+                case state.PLAY:
+                    break;
+
             }
 
-            player.update();
-            platform.update();
-            platform1.update();
-
-            if (player.collide)
-            {
-                CollisionManager.checkCollision(player, platform);
-                CollisionManager.checkCollision(player, platform1);
-            }
-       
             base.Update(gameTime);
         }
 
@@ -142,16 +153,17 @@ namespace Opinnaytetyo
             // Start drawing
             spriteBatch.Begin();
 
-            // Render all entities
-            foreach(Entity e in entities)
+            switch (currentState)
             {
-                e.render(spriteBatch);
-            }
+                case state.LOADING:
+                    break;
+                case state.MENU:
+                    mainMenu.render(gameTime);
+                    break;
+                case state.PLAY:
+                    break;
 
-            background.render(spriteBatch);
-            platform.render(spriteBatch);
-            platform1.render(spriteBatch);
-            player.render(spriteBatch);
+            }
 
             // End drawing
             spriteBatch.End();
