@@ -149,9 +149,9 @@ namespace Opinnaytetyo
             }
 
             background.render(spriteBatch);
-            player.render(spriteBatch);
             platform.render(spriteBatch);
             platform1.render(spriteBatch);
+            player.render(spriteBatch);
 
             // End drawing
             spriteBatch.End();
