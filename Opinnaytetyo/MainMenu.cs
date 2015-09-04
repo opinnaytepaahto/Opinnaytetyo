@@ -14,33 +14,33 @@ namespace Opinnaytetyo
         public static bool initialized = false;
 
         private Background background;
-        private Player player;
         private PlayerButton playButton;
         private PlayerButton exitButton;
+        private Player player;
 
         public MainMenu()
         {
             background = new Background();
-            player = new Player();
             playButton = new PlayerButton();
             exitButton = new PlayerButton();
+            player = new Player();
         }
 
         public void init()
         {
             background.init(Loading.backgroundImage1, new Vector2(0, 0));
-            player.init(Loading.playerImage, new Vector2(0, 0));
             playButton.init(Loading.playButtonImage, new Vector2(210, 280), "play");
             exitButton.init(Loading.exitButtonImage, new Vector2(480, 280), "exit");
+            player.init(Loading.playerImage, new Vector2(0, 0));
 
             initialized = true;
         }
 
         public void update(GameTime gameTime)
         {
-            player.update(gameTime);
             playButton.update(gameTime);
             exitButton.update(gameTime);
+            player.update(gameTime);
 
             CollisionManager.checkButtonCollision(player, exitButton);
             CollisionManager.checkButtonCollision(player, playButton);
@@ -66,9 +66,9 @@ namespace Opinnaytetyo
         public void render(GameTime gameTime, SpriteBatch batch)
         {
             background.render(batch);
-            player.render(batch);
             playButton.render(batch);
             exitButton.render(batch);
+            player.render(batch);
         }
     }
 }
