@@ -123,23 +123,20 @@ namespace Opinnaytetyo
 
             switch (currentState)
             {
+                case state.LOADING:
+                    loading.update(gameTime);
+                    break;
                 case state.MENU:
                     if (!MainMenu.initialized)
                     {
                         mainMenu.init();
                     }
-                    break;
-            }
-
-            switch (currentState)
-            {
-                case state.LOADING:
-                    loading.update(gameTime);
-                    break;
-                case state.MENU:
                     mainMenu.update(gameTime);
                     break;
                 case state.PLAY:
+                    break;
+                case state.EXIT:
+                    Exit();
                     break;
 
             }

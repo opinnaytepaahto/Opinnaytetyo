@@ -23,6 +23,7 @@ namespace Opinnaytetyo
         public static Texture2D fireballImage;
         public static Texture2D banditImage;
         public static Texture2D playButtonImage;
+        public static Texture2D exitButtonImage;
 
         public static Texture2D loading1Tex;
         public static Background loading1;
@@ -79,8 +80,9 @@ namespace Opinnaytetyo
             fireballImage = content.Load<Texture2D>("fireball.png");
             banditImage = content.Load<Texture2D>("bandit.png");
             playButtonImage = content.Load<Texture2D>("Play.png");
+            exitButtonImage = content.Load<Texture2D>("Exit.png");
 
-            Thread.Sleep(2500);
+            // Thread.Sleep(2500);
 
             loadingComplete = true;
         }

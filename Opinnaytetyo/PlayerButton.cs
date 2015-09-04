@@ -9,10 +9,13 @@ namespace Opinnaytetyo
 {
     class PlayerButton : Entity
     {
-        public void init(Texture2D texture, Vector2 position)
+        public String id;
+
+        public void init(Texture2D texture, Vector2 position, String id)
         {
             this.texture = texture;
             this.position = position;
+            this.id = id;
         }
 
         public override void update(GameTime gameTime)

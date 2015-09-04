@@ -16,19 +16,22 @@ namespace Opinnaytetyo
         private Background background;
         private Player player;
         private PlayerButton playButton;
+        private PlayerButton exitButton;
 
         public MainMenu()
         {
             background = new Background();
             player = new Player();
             playButton = new PlayerButton();
+            exitButton = new PlayerButton();
         }
 
         public void init()
         {
             background.init(Loading.backgroundImage1, new Vector2(0, 0));
             player.init(Loading.playerImage, new Vector2(0, 0));
-            playButton.init(Loading.playButtonImage, new Vector2(100, 275));
+            playButton.init(Loading.playButtonImage, new Vector2(210, 280), "play");
+            exitButton.init(Loading.exitButtonImage, new Vector2(480, 280), "exit");
 
             initialized = true;
         }
@@ -37,14 +40,25 @@ namespace Opinnaytetyo
         {
             player.update(gameTime);
             playButton.update(gameTime);
+            exitButton.update(gameTime);
 
-            CollisionManager.checkCollision(player, playButton);
+            CollisionManager.checkButtonCollision(player, exitButton);
+            CollisionManager.checkButtonCollision(player, playButton);
 
-            if (player.colliding)
+
+            if (player.colPlay)
             {
                 if (InputManager.isKeyJustDown(Keys.S) || InputManager.isKeyJustDown(Keys.Down))
                 {
                     MainGame.currentState = MainGame.state.PLAY;
+                }
+            }
+
+            if (player.colExit)
+            {
+                if (InputManager.isKeyJustDown(Keys.S) || InputManager.isKeyJustDown(Keys.Down))
+                {
+                    MainGame.currentState = MainGame.state.EXIT;
                 }
             }
         }
@@ -54,6 +68,7 @@ namespace Opinnaytetyo
             background.render(batch);
             player.render(batch);
             playButton.render(batch);
+            exitButton.render(batch);
         }
     }
 }
