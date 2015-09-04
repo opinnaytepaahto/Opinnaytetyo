@@ -48,52 +48,9 @@ namespace Opinnaytetyo
         {
             base.update(gameTime);
 
-            if (InputManager.isKeyDown(Keys.A) || InputManager.isKeyDown(Keys.Left))
-            {
-                velocity.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            }
-            if (InputManager.isKeyDown(Keys.D) || InputManager.isKeyDown(Keys.Right))
-            {
-                velocity.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            }
-            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)) && cooldown == 0)
-            {
-                cooldown = 0.5f;
-                velocity.Y -= 500.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            }
-            if (InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down))
-            {
-                collide = false;
-            }
-            else
-            {
-                collide = true;
-            }
-
-            if (velocity.X > 0)
-            {
-                flipped = false;
-                velocity.X -= friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                if (velocity.X < 0.01f)
-                {
-                    velocity.X = 0;
-                }
-            }
-            if (velocity.X < 0)
-            {
-                flipped = true;
-                velocity.X += friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                if (velocity.X > -0.01f)
-                {
-                    velocity.X = 0;
-                }
-            }
-
-            velocity.Y += gravity * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
             cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            moveIfPossible();
 
             if (cooldown <= 0)
             {
@@ -110,10 +67,6 @@ namespace Opinnaytetyo
                 colPlay = false;
                 colExit = false;
             }
-
-            position += velocity;
-
-            keepOnScreen();
         }
 
         public override void render(SpriteBatch batch)
@@ -147,6 +100,111 @@ namespace Opinnaytetyo
                 velocity.Y = 0;
                 position.Y = MainGame.windowHeight - textureRectangle.Height - 133;
             }
+        }
+
+        private void moveIfPossible()
+        {
+            Vector2 oldPos = position;
+
+            handleMovement();
+            handleJumping();
+            handleDropping();
+
+            applyFriction();
+            velocity.Y += gravity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            keepOnScreen();
+
+            position += velocity;
+
+            position = howLongToMove(oldPos, position, textureRectangle);
+        }
+
+        private void handleMovement()
+        {
+            if (InputManager.isKeyDown(Keys.A) || InputManager.isKeyDown(Keys.Left))
+            {
+                velocity.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            if (InputManager.isKeyDown(Keys.D) || InputManager.isKeyDown(Keys.Right))
+            {
+                velocity.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+        }
+
+        private void handleJumping()
+        {
+            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)))
+            {
+                cooldown = 0.5f;
+                velocity.Y -= 500.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+        }
+
+        private void handleDropping()
+        {
+            if (InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down))
+            {
+                collide = false;
+            }
+            else
+            {
+                collide = true;
+            }
+        }
+
+        private void applyFriction()
+        {
+            if (velocity.X > 0)
+            {
+                flipped = false;
+                velocity.X -= friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (velocity.X < 0.01f)
+                {
+                    velocity.X = 0;
+                }
+            }
+            if (velocity.X < 0)
+            {
+                flipped = true;
+                velocity.X += friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (velocity.X > -0.01f)
+                {
+                    velocity.X = 0;
+                }
+            }
+        }
+
+        private Rectangle createRectAtPos(Vector2 pos, int width, int height)
+        {
+            return new Rectangle((int)pos.X, (int)pos.Y, width, height);
+        }
+
+        private Vector2 howLongToMove(Vector2 originalPos, Vector2 destination, Rectangle bounds)
+        {
+            Vector2 tryMovement = destination - originalPos;
+            Vector2 furthestSoFar = originalPos;
+
+            int numSteps = (int)(tryMovement.Length() * 2) + 1;
+            Vector2 step = tryMovement / numSteps;
+
+            for (int i = 1; i <= numSteps; i++)
+            {
+                Vector2 tryPos = originalPos + step * i;
+                Rectangle newBounds = createRectAtPos(tryPos, bounds.Width, bounds.Height);
+
+                if (CollisionManager.checkCollision(newBounds))
+                {
+                    furthestSoFar = tryPos;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return furthestSoFar;
         }
     }
 }

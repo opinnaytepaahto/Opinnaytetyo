@@ -21,15 +21,11 @@ namespace Opinnaytetyo
         public override void update(GameTime gameTime)
         {
             base.update(gameTime);
-
-
         }
 
         public override void render(SpriteBatch batch)
         {
             base.render(batch);
-
-
         }
     }
 }

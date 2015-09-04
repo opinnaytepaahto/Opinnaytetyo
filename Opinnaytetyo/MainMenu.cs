@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,12 +19,19 @@ namespace Opinnaytetyo
         private PlayerButton exitButton;
         private Player player;
 
+        public static ArrayList collidables;
+
         public MainMenu()
         {
+            collidables = new ArrayList();
+
             background = new Background();
             playButton = new PlayerButton();
             exitButton = new PlayerButton();
             player = new Player();
+
+            collidables.Add(playButton);
+            collidables.Add(exitButton);
         }
 
         public void init()
@@ -42,8 +50,8 @@ namespace Opinnaytetyo
             exitButton.update(gameTime);
             player.update(gameTime);
 
-            CollisionManager.checkButtonCollision(player, exitButton);
-            CollisionManager.checkButtonCollision(player, playButton);
+            // CollisionManager.checkButtonCollision(player, exitButton);
+            // CollisionManager.checkButtonCollision(player, playButton);
 
 
             if (player.colPlay)
