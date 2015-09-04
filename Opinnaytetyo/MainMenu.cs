@@ -42,7 +42,7 @@ namespace Opinnaytetyo
 
             if (player.colliding)
             {
-                if (InputManager.isKeyJustDown(Keys.E))
+                if (InputManager.isKeyJustDown(Keys.S) || InputManager.isKeyJustDown(Keys.Down))
                 {
                     MainGame.currentState = MainGame.state.PLAY;
                 }

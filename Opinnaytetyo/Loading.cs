@@ -80,7 +80,7 @@ namespace Opinnaytetyo
             banditImage = content.Load<Texture2D>("bandit.png");
             playButtonImage = content.Load<Texture2D>("Play.png");
 
-            Thread.Sleep(10000);
+            Thread.Sleep(2500);
 
             loadingComplete = true;
         }
