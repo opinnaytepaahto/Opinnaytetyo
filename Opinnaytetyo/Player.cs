@@ -37,7 +37,7 @@ namespace Opinnaytetyo
             flipped = false;
         }
 
-        public void update()
+        public override void update(GameTime gameTime)
         {
             base.update(gameTime);
 

@@ -13,6 +13,7 @@ namespace Opinnaytetyo
         public Vector2 velocity;
 
         public float gravity;
+        public bool colliding;
 
         public Texture2D texture;
         public Rectangle textureRectangle;

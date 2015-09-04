@@ -18,7 +18,7 @@ namespace Opinnaytetyo
         public static float windowHeight;
 
         // State stuff
-        enum state
+        public enum state
         {
             LOADING,
             MENU,
@@ -26,15 +26,20 @@ namespace Opinnaytetyo
             EXIT
         }
 
-        private state currentState;
+        public static state currentState;
 
         // State entities
+        private Loading loading;
         private MainMenu mainMenu;
 
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            // Create objects
+            loading = new Loading(Content);
+            mainMenu = new MainMenu();
         }
 
         /// <summary>
@@ -52,18 +57,7 @@ namespace Opinnaytetyo
             windowHeight = graphics.GraphicsDevice.Viewport.Height;
 
             currentState = state.LOADING;
-
-            switch(currentState)
-            {
-                case state.LOADING:
-                    break;
-                case state.MENU:
-                    mainMenu.init();
-                    break;
-                case state.PLAY:
-                    break;
-
-            }
+            loading.init();
 
             base.Initialize();
         }
@@ -82,9 +76,9 @@ namespace Opinnaytetyo
             switch (currentState)
             {
                 case state.LOADING:
+                    loading.loadContent();
                     break;
                 case state.MENU:
-                    mainMenu.loadContent(Content);
                     break;
                 case state.PLAY:
                     break;
@@ -103,9 +97,9 @@ namespace Opinnaytetyo
             switch (currentState)
             {
                 case state.LOADING:
+                    loading.unloadContent();
                     break;
                 case state.MENU:
-                    mainMenu.unloadContent();
                     break;
                 case state.PLAY:
                     break;
@@ -125,9 +119,22 @@ namespace Opinnaytetyo
 
             // TODO: Add your update logic here
 
+            InputManager.update();
+
+            switch (currentState)
+            {
+                case state.MENU:
+                    if (!MainMenu.initialized)
+                    {
+                        mainMenu.init();
+                    }
+                    break;
+            }
+
             switch (currentState)
             {
                 case state.LOADING:
+                    loading.update(gameTime);
                     break;
                 case state.MENU:
                     mainMenu.update(gameTime);
@@ -156,9 +163,10 @@ namespace Opinnaytetyo
             switch (currentState)
             {
                 case state.LOADING:
+                    loading.render(gameTime, spriteBatch);
                     break;
                 case state.MENU:
-                    mainMenu.render(gameTime);
+                    mainMenu.render(gameTime, spriteBatch);
                     break;
                 case state.PLAY:
                     break;
