@@ -49,29 +49,9 @@ namespace Opinnaytetyo
 
         public void update(GameTime gameTime)
         {
-            playButton.update(gameTime);
-            exitButton.update(gameTime);
             player.update(gameTime);
-
-            // CollisionManager.checkButtonCollision(player, exitButton);
-            // CollisionManager.checkButtonCollision(player, playButton);
-
-
-            if (player.colPlay)
-            {
-                if (InputManager.isKeyJustDown(Keys.S) || InputManager.isKeyJustDown(Keys.Down))
-                {
-                    MainGame.currentState = MainGame.state.PLAY;
-                }
-            }
-
-            if (player.colExit)
-            {
-                if (InputManager.isKeyJustDown(Keys.S) || InputManager.isKeyJustDown(Keys.Down))
-                {
-                    MainGame.currentState = MainGame.state.EXIT;
-                }
-            }
+            playButton.update(gameTime, player.getBounds());
+            exitButton.update(gameTime, player.getBounds());
         }
 
         public void render(GameTime gameTime, SpriteBatch batch)

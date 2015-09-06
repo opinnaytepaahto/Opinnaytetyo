@@ -95,7 +95,11 @@ namespace Opinnaytetyo
         {
             oldPos = position;
             position += velocity * (float)gameTime.ElapsedGameTime.TotalMilliseconds / 15;
-            position = howLongToMove(oldPos, position, textureRectangle);
+
+            if (collide)
+            {
+                position = howLongToMove(oldPos, position, textureRectangle);
+            }
         }
 
         private void handleMovement()
@@ -110,7 +114,7 @@ namespace Opinnaytetyo
                 velocity += Vector2.UnitX * speed;
                 flipped = false;
             }
-            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)))
+            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)) && cooldown <= 0)
             {
                 cooldown = 0.5f;
                 velocity -= Vector2.UnitY * 30.0f;
