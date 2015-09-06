@@ -33,9 +33,9 @@ namespace Opinnaytetyo
 
             textureRectangle = texture.Bounds;
 
-            speed = 100.0f;
-            friction = 95.0f;
-            gravity = 30.0f;
+            speed = 0.5f;
+            friction = 0.15f;
+            gravity = 0.8f;
             cooldown = 0.0f;
 
             velocity = new Vector2(0.0f, 0.0f);
@@ -103,11 +103,13 @@ namespace Opinnaytetyo
         {
             if (InputManager.isKeyDown(Keys.A) || InputManager.isKeyDown(Keys.Left))
             {
-                velocity -= Vector2.UnitX;
+                velocity -= Vector2.UnitX * speed;
+                flipped = true;
             }
             if (InputManager.isKeyDown(Keys.D) || InputManager.isKeyDown(Keys.Right))
             {
-                velocity += Vector2.UnitX;
+                velocity += Vector2.UnitX * speed;
+                flipped = false;
             }
             if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)) && grounded)
             {
@@ -148,10 +150,10 @@ namespace Opinnaytetyo
             //}
 
             // Gravity
-            velocity += Vector2.UnitY * .8f;
+            velocity += Vector2.UnitY * gravity;
 
             // Friciton
-            velocity -= velocity * Vector2.One * .08f;
+            velocity -= velocity * Vector2.One * friction;
         }
 
         private void keepOnScreen()
