@@ -31,6 +31,7 @@ namespace Opinnaytetyo
         // State entities
         private Loading loading;
         private MainMenu mainMenu;
+        private GameStage gameStage;
 
         public MainGame()
         {
@@ -40,6 +41,7 @@ namespace Opinnaytetyo
             // Create objects
             loading = new Loading(Content);
             mainMenu = new MainMenu();
+            gameStage = new GameStage();
         }
 
         /// <summary>
@@ -134,6 +136,11 @@ namespace Opinnaytetyo
                     mainMenu.update(gameTime);
                     break;
                 case state.PLAY:
+                    if (!gameStage.initialized)
+                    {
+                        gameStage.init();
+                    }
+                    gameStage.update(gameTime);
                     break;
                 case state.EXIT:
                     Exit();
@@ -166,6 +173,7 @@ namespace Opinnaytetyo
                     mainMenu.render(gameTime, spriteBatch);
                     break;
                 case state.PLAY:
+                    gameStage.render(gameTime, spriteBatch);
                     break;
 
             }
