@@ -18,7 +18,6 @@ namespace Opinnaytetyo
         private bool flipped;
 
         private Vector2 oldPos;
-        private bool grounded = false;
 
         public bool colliding = false;
         public bool colPlay;
@@ -35,7 +34,7 @@ namespace Opinnaytetyo
 
             speed = 0.5f;
             friction = 0.15f;
-            gravity = 0.8f;
+            gravity = 1.3f;
             cooldown = 0.0f;
 
             velocity = new Vector2(0.0f, 0.0f);
@@ -111,10 +110,10 @@ namespace Opinnaytetyo
                 velocity += Vector2.UnitX * speed;
                 flipped = false;
             }
-            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)) && grounded)
+            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)))
             {
                 cooldown = 0.5f;
-                velocity = -Vector2.UnitY * 20;
+                velocity -= Vector2.UnitY * 30.0f;
             }
             if (InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down))
             {
@@ -150,7 +149,7 @@ namespace Opinnaytetyo
             //}
 
             // Gravity
-            velocity += Vector2.UnitY * gravity;
+            velocity.Y += gravity;
 
             // Friciton
             velocity -= velocity * Vector2.One * friction;
@@ -168,16 +167,6 @@ namespace Opinnaytetyo
                 velocity.X = 0;
                 position.X = MainGame.windowWidth - textureRectangle.Width;
             }
-            if (position.Y > MainGame.windowHeight - textureRectangle.Height - 133)
-            {
-                velocity.Y = 0;
-                position.Y = MainGame.windowHeight - textureRectangle.Height - 133;
-                grounded = true;
-            }
-            else
-            {
-                grounded = false;
-            }
         }
 
         void stopIfBlocked()
@@ -191,21 +180,6 @@ namespace Opinnaytetyo
             if (lastVelocity.Y == 0)
             {
                 velocity *= Vector2.UnitX;
-            }
-        }
-
-        private void checkGround()
-        {
-            Rectangle pixelLower = textureRectangle;
-            pixelLower.Offset(0, 1);
-
-            if (CollisionManager.checkCollision(pixelLower))
-            {
-                grounded = true;
-            }
-            else
-            {
-                grounded = false;
             }
         }
 

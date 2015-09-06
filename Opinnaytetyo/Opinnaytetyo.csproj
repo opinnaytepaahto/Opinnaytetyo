@@ -42,6 +42,7 @@
     <Compile Include="CollisionManager.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="GameStage.cs" />
+    <Compile Include="Ground.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="Loading.cs" />
     <Compile Include="MainGame.cs" />

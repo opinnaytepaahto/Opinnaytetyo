@@ -18,6 +18,7 @@ namespace Opinnaytetyo
         private PlayerButton playButton;
         private PlayerButton exitButton;
         private Player player;
+        private Ground ground;
 
         public static ArrayList collidables;
 
@@ -29,9 +30,11 @@ namespace Opinnaytetyo
             playButton = new PlayerButton();
             exitButton = new PlayerButton();
             player = new Player();
+            ground = new Ground(new Rectangle(0, 345, 1000, 10));
 
             collidables.Add(playButton);
             collidables.Add(exitButton);
+            collidables.Add(ground);
         }
 
         public void init()
