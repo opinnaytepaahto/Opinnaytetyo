@@ -17,6 +17,9 @@ namespace Opinnaytetyo
         private SpriteEffects flipEffect;
         private bool flipped;
 
+        private Vector2 oldPos;
+        private bool grounded = false;
+
         public bool colliding = false;
         public bool colPlay;
         public bool colExit;
@@ -50,7 +53,13 @@ namespace Opinnaytetyo
 
             cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+            handleMovement();
+            applyFrictionAndGravity();
+            keepOnScreen();
             moveIfPossible();
+            stopIfBlocked();
+
+            Console.WriteLine("Velocity: " + velocity.X + ", " + velocity.Y);
 
             if (cooldown <= 0)
             {
@@ -83,6 +92,68 @@ namespace Opinnaytetyo
             }
         }
 
+        private void moveIfPossible()
+        {
+            oldPos = position;
+            position += velocity * (float)gameTime.ElapsedGameTime.TotalMilliseconds / 15;
+            position = howLongToMove(oldPos, position, textureRectangle);
+        }
+
+        private void handleMovement()
+        {
+            if (InputManager.isKeyDown(Keys.A) || InputManager.isKeyDown(Keys.Left))
+            {
+                velocity -= Vector2.UnitX;
+            }
+            if (InputManager.isKeyDown(Keys.D) || InputManager.isKeyDown(Keys.Right))
+            {
+                velocity += Vector2.UnitX;
+            }
+            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)) && grounded)
+            {
+                cooldown = 0.5f;
+                velocity = -Vector2.UnitY * 20;
+            }
+            if (InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down))
+            {
+                collide = false;
+            }
+            else
+            {
+                collide = true;
+            }
+        }
+
+        private void applyFrictionAndGravity()
+        {
+            //if (velocity.X > 0)
+            //{
+            //    flipped = false;
+            //    velocity.X -= friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            //    if (velocity.X < 0.01f)
+            //    {
+            //        velocity.X = 0;
+            //    }
+            //}
+            //if (velocity.X < 0)
+            //{
+            //    flipped = true;
+            //    velocity.X += friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            //    if (velocity.X > -0.01f)
+            //    {
+            //        velocity.X = 0;
+            //    }
+            //}
+
+            // Gravity
+            velocity += Vector2.UnitY * .8f;
+
+            // Friciton
+            velocity -= velocity * Vector2.One * .08f;
+        }
+
         private void keepOnScreen()
         {
             if (position.X < 0)
@@ -99,80 +170,40 @@ namespace Opinnaytetyo
             {
                 velocity.Y = 0;
                 position.Y = MainGame.windowHeight - textureRectangle.Height - 133;
-            }
-        }
-
-        private void moveIfPossible()
-        {
-            Vector2 oldPos = position;
-
-            handleMovement();
-            handleJumping();
-            handleDropping();
-
-            applyFriction();
-            velocity.Y += gravity * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            keepOnScreen();
-
-            position += velocity;
-
-            position = howLongToMove(oldPos, position, textureRectangle);
-        }
-
-        private void handleMovement()
-        {
-            if (InputManager.isKeyDown(Keys.A) || InputManager.isKeyDown(Keys.Left))
-            {
-                velocity.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            }
-            if (InputManager.isKeyDown(Keys.D) || InputManager.isKeyDown(Keys.Right))
-            {
-                velocity.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            }
-        }
-
-        private void handleJumping()
-        {
-            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)))
-            {
-                cooldown = 0.5f;
-                velocity.Y -= 500.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            }
-        }
-
-        private void handleDropping()
-        {
-            if (InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down))
-            {
-                collide = false;
+                grounded = true;
             }
             else
             {
-                collide = true;
+                grounded = false;
             }
         }
 
-        private void applyFriction()
+        void stopIfBlocked()
         {
-            if (velocity.X > 0)
-            {
-                flipped = false;
-                velocity.X -= friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Vector2 lastVelocity = position - oldPos;
 
-                if (velocity.X < 0.01f)
-                {
-                    velocity.X = 0;
-                }
+            if (lastVelocity.X == 0)
+            {
+                velocity *= Vector2.UnitY;
             }
-            if (velocity.X < 0)
+            if (lastVelocity.Y == 0)
             {
-                flipped = true;
-                velocity.X += friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                velocity *= Vector2.UnitX;
+            }
+        }
 
-                if (velocity.X > -0.01f)
-                {
-                    velocity.X = 0;
-                }
+        private void checkGround()
+        {
+            Rectangle pixelLower = textureRectangle;
+            pixelLower.Offset(0, 1);
+
+            if (CollisionManager.checkCollision(pixelLower))
+            {
+                grounded = true;
+            }
+            else
+            {
+                grounded = false;
             }
         }
 
@@ -183,28 +214,44 @@ namespace Opinnaytetyo
 
         private Vector2 howLongToMove(Vector2 originalPos, Vector2 destination, Rectangle bounds)
         {
-            Vector2 tryMovement = destination - originalPos;
-            Vector2 furthestSoFar = originalPos;
+            Vector2 movementToTry = destination - originalPos;
+            Vector2 furthestAvailableLocationSoFar = originalPos;
 
-            int numSteps = (int)(tryMovement.Length() * 2) + 1;
-            Vector2 step = tryMovement / numSteps;
+            int numberOfStepsToBreakMovementInto = (int)(movementToTry.Length() * 2) + 1;
+            Vector2 oneStep = movementToTry / numberOfStepsToBreakMovementInto;
 
-            for (int i = 1; i <= numSteps; i++)
+            for (int i = 1; i <= numberOfStepsToBreakMovementInto; i++)
             {
-                Vector2 tryPos = originalPos + step * i;
-                Rectangle newBounds = createRectAtPos(tryPos, bounds.Width, bounds.Height);
+                Vector2 positionToTry = originalPos + oneStep * i;
+                Rectangle newBoundary = createRectAtPos(positionToTry, bounds.Width, bounds.Height);
 
-                if (CollisionManager.checkCollision(newBounds))
+                if (CollisionManager.checkCollision(newBoundary))
                 {
-                    furthestSoFar = tryPos;
+                    furthestAvailableLocationSoFar = positionToTry;
                 }
                 else
                 {
+                    bool isDiagonalMove = movementToTry.X != 0 && movementToTry.Y != 0;
+                    if (isDiagonalMove)
+                    {
+                        int stepsLeft = numberOfStepsToBreakMovementInto - (i - 1);
+
+                        Vector2 remainingHorizontalMovement = oneStep.X * Vector2.UnitX * stepsLeft;
+                        Vector2 finalPositionIfMovingHorizontally = furthestAvailableLocationSoFar + remainingHorizontalMovement;
+                        furthestAvailableLocationSoFar =
+                            howLongToMove(furthestAvailableLocationSoFar, finalPositionIfMovingHorizontally, bounds);
+
+                        Vector2 remainingVerticalMovement = oneStep.Y * Vector2.UnitY * stepsLeft;
+                        Vector2 finalPositionIfMovingVertically = furthestAvailableLocationSoFar + remainingVerticalMovement;
+                        furthestAvailableLocationSoFar =
+                            howLongToMove(furthestAvailableLocationSoFar, finalPositionIfMovingVertically, bounds);
+                    }
+
                     break;
                 }
             }
 
-            return furthestSoFar;
+            return furthestAvailableLocationSoFar;
         }
     }
 }
