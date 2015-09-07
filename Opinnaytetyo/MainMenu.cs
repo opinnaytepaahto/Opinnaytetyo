@@ -42,7 +42,7 @@ namespace Opinnaytetyo
             background.init(Loading.backgroundImage1, new Vector2(0, 0));
             playButton.init(Loading.playButtonImage, new Vector2(210, 280), "play");
             exitButton.init(Loading.exitButtonImage, new Vector2(480, 280), "exit");
-            player.init(Loading.spacemanImage, new Vector2(0, 0));
+            player.init(Loading.spacemanImage, new Vector2(0, 290));
 
             initialized = true;
         }

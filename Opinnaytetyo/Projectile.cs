@@ -22,7 +22,7 @@ namespace Opinnaytetyo
             this.flipped = flipped;
             flipEffect = SpriteEffects.FlipHorizontally;
 
-            timer = 1.0f;
+            timer = 1.5f;
 
             this.textureRectangle = texture.Bounds;
         }

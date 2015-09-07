@@ -13,7 +13,8 @@ namespace Opinnaytetyo
     {
         private float speed;
         private float friction;
-        private float cooldown;
+        private float jCooldown;
+        private float sCooldown;
 
         private SpriteEffects flipEffect;
         private bool flipped;
@@ -34,7 +35,8 @@ namespace Opinnaytetyo
             speed = 0.5f;
             friction = 0.15f;
             gravity = 1.3f;
-            cooldown = 0.0f;
+            jCooldown = 0.0f;
+            sCooldown = 0.0f;
 
             velocity = new Vector2(0.0f, 0.0f);
             bullets = new List<Projectile>();
@@ -47,7 +49,8 @@ namespace Opinnaytetyo
         {
             base.update(gameTime);
 
-            cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            jCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            sCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             handleMovement();
             applyFrictionAndGravity();
@@ -57,9 +60,9 @@ namespace Opinnaytetyo
 
             Console.WriteLine("Velocity: " + velocity.X + ", " + velocity.Y);
 
-            if (cooldown <= 0)
+            if (jCooldown <= 0)
             {
-                cooldown = 0;
+                jCooldown = 0;
             }
 
             if (velocity.X >= 100)
@@ -120,9 +123,9 @@ namespace Opinnaytetyo
                 velocity += Vector2.UnitX * speed;
                 flipped = false;
             }
-            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)) && cooldown <= 0)
+            if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)) && jCooldown <= 0)
             {
-                cooldown = 0.5f;
+                jCooldown = 0.5f;
                 velocity -= Vector2.UnitY * 30.0f;
             }
             if (InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down))
@@ -134,8 +137,9 @@ namespace Opinnaytetyo
                 collide = true;
             }
 
-            if (InputManager.isKeyDown(Keys.Space))
+            if ((InputManager.isKeyDown(Keys.Space)) && sCooldown <= 0)
             {
+                sCooldown = 0.7f;
                 if (flipped)
                 {
                     bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X - 10, position.Y + 15), flipped));
@@ -149,26 +153,6 @@ namespace Opinnaytetyo
 
         private void applyFrictionAndGravity()
         {
-            //if (velocity.X > 0)
-            //{
-            //    flipped = false;
-            //    velocity.X -= friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            //    if (velocity.X < 0.01f)
-            //    {
-            //        velocity.X = 0;
-            //    }
-            //}
-            //if (velocity.X < 0)
-            //{
-            //    flipped = true;
-            //    velocity.X += friction * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            //    if (velocity.X > -0.01f)
-            //    {
-            //        velocity.X = 0;
-            //    }
-            //}
 
             // Gravity
             velocity.Y += gravity;
