@@ -10,6 +10,7 @@ namespace Opinnaytetyo
     class Projectile : Entity
     {
         private bool flipped;
+        private SpriteEffects flipEffect;
 
         public float timer;
 
@@ -19,6 +20,7 @@ namespace Opinnaytetyo
             this.position = position;
 
             this.flipped = flipped;
+            flipEffect = SpriteEffects.FlipHorizontally;
 
             timer = 1.0f;
 
@@ -44,6 +46,15 @@ namespace Opinnaytetyo
         public override void render(SpriteBatch batch)
         {
             base.render(batch);
+
+            if (flipped)
+            {
+                batch.Draw(texture, position, null, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
+            }
+            else
+            {
+                batch.Draw(texture, position);
+            }
         }
     }
 }

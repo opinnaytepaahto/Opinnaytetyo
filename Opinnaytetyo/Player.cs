@@ -136,7 +136,14 @@ namespace Opinnaytetyo
 
             if (InputManager.isKeyDown(Keys.Space))
             {
-                bullets.Add(new Projectile(Loading.bulletImage, position, flipped));
+                if (flipped)
+                {
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X - 10, position.Y + 15), flipped));
+                }
+                else
+                {
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X + 15, position.Y + 15), flipped));
+                }
             }
         }
 
