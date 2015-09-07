@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections;
 
 namespace Opinnaytetyo
@@ -136,7 +137,7 @@ namespace Opinnaytetyo
                     mainMenu.update(gameTime);
                     break;
                 case state.PLAY:
-                    if (!gameStage.initialized)
+                    if (!GameStage.initialized)
                     {
                         gameStage.init();
                     }

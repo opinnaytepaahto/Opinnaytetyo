@@ -10,12 +10,26 @@ namespace Opinnaytetyo
     {
         public static bool checkCollision(Rectangle bounds)
         {
-            foreach(Entity e in MainMenu.collidables)
+            switch(MainGame.currentState)
             {
-                if (bounds.Intersects(e.getBounds()))
-                {
-                    return false;
-                }
+                case MainGame.state.MENU:
+                    foreach (Entity e in MainMenu.collidables)
+                    {
+                        if (bounds.Intersects(e.getBounds()))
+                        {
+                            return false;
+                        }
+                    }
+                    break;
+                case MainGame.state.PLAY:
+                    foreach (Entity e in GameStage.collidables)
+                    {
+                        if (bounds.Intersects(e.getBounds()))
+                        {
+                            return false;
+                        }
+                    }
+                    break;
             }
 
             return true;

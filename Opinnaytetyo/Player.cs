@@ -19,10 +19,6 @@ namespace Opinnaytetyo
 
         private Vector2 oldPos;
 
-        public bool colliding = false;
-        public bool colPlay;
-        public bool colExit;
-
         public bool collide = true;
     
         public void init(Texture2D texture, Vector2 position)
@@ -41,9 +37,6 @@ namespace Opinnaytetyo
 
             flipEffect = SpriteEffects.FlipHorizontally;
             flipped = false;
-
-            colPlay = false;
-            colExit = false;
         }
 
         public override void update(GameTime gameTime)
@@ -68,12 +61,6 @@ namespace Opinnaytetyo
             if (velocity.X >= 100)
             {
                 velocity.X = 100;
-            }
-
-            if (!colliding)
-            {
-                colPlay = false;
-                colExit = false;
             }
         }
 
