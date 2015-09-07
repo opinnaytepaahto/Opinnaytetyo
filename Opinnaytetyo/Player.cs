@@ -136,7 +136,7 @@ namespace Opinnaytetyo
 
             if (InputManager.isKeyDown(Keys.Space))
             {
-                bullets.Add(new Projectile(Loading.banditImage, position, flipped));
+                bullets.Add(new Projectile(Loading.bulletImage, position, flipped));
             }
         }
 
