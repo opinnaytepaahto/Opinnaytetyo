@@ -32,7 +32,7 @@ namespace Opinnaytetyo
         public void init()
         {
             background.init(Loading.backgroundImage1, new Vector2(0, 0));
-            player.init(Loading.playerImage, new Vector2(0, 0));
+            player.init(Loading.spacemanImage, new Vector2(0, 0));
 
             initialized = true;
         }

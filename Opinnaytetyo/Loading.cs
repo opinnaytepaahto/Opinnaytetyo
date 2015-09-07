@@ -19,6 +19,8 @@ namespace Opinnaytetyo
 
         // Public variables
         public static Texture2D playerImage;
+        public static Texture2D spacemanImage;
+        public static Texture2D armyImage;
         public static Texture2D backgroundImage1;
         public static Texture2D fireballImage;
         public static Texture2D banditImage;
@@ -76,6 +78,8 @@ namespace Opinnaytetyo
             loading = false;
 
             playerImage = content.Load<Texture2D>("player.png");
+            spacemanImage = content.Load<Texture2D>("Spaceman.png");
+            armyImage = content.Load<Texture2D>("armyman.png");
             backgroundImage1 = content.Load<Texture2D>("palmuict.png");
             fireballImage = content.Load<Texture2D>("fireball.png");
             banditImage = content.Load<Texture2D>("bandit.png");
