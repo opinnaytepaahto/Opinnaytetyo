@@ -40,8 +40,8 @@ namespace Opinnaytetyo
         public void init()
         {
             background.init(Loading.backgroundImage1, new Vector2(0, 0));
-            playButton.init(Loading.playButtonImage, new Vector2(210, 280), "play");
-            exitButton.init(Loading.exitButtonImage, new Vector2(480, 280), "exit");
+            playButton.init(Loading.playButtonImage, new Vector2(210, 275), "play");
+            exitButton.init(Loading.exitButtonImage, new Vector2(480, 275), "exit");
             player.init(Loading.spacemanImage, new Vector2(0, 290));
 
             initialized = true;
