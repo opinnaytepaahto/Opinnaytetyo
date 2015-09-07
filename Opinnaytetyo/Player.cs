@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace Opinnaytetyo
 
         private Vector2 oldPos;
 
+        private List<Projectile> bullets;
+
         public bool collide = true;
     
         public void init(Texture2D texture, Vector2 position)
@@ -34,6 +37,7 @@ namespace Opinnaytetyo
             cooldown = 0.0f;
 
             velocity = new Vector2(0.0f, 0.0f);
+            bullets = new List<Projectile>();
 
             flipEffect = SpriteEffects.FlipHorizontally;
             flipped = false;
@@ -62,6 +66,16 @@ namespace Opinnaytetyo
             {
                 velocity.X = 100;
             }
+
+            for (int i = 0; i < bullets.Count; i++)
+            {
+                bullets[i].update(gameTime);
+
+                if (bullets[i].timer <= 0)
+                {
+                    bullets.RemoveAt(i);
+                }
+            }
         }
 
         public override void render(SpriteBatch batch)
@@ -75,6 +89,11 @@ namespace Opinnaytetyo
             else
             {
                 batch.Draw(texture, position, null, Color.White);
+            }
+
+            foreach (Projectile p in bullets)
+            {
+                p.render(batch);
             }
         }
 
@@ -113,6 +132,11 @@ namespace Opinnaytetyo
             else
             {
                 collide = true;
+            }
+
+            if (InputManager.isKeyDown(Keys.Space))
+            {
+                bullets.Add(new Projectile(Loading.banditImage, position, flipped));
             }
         }
 

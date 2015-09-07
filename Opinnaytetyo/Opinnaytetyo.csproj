@@ -51,6 +51,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="PlayerButton.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
