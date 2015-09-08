@@ -27,7 +27,7 @@ namespace Opinnaytetyo
         {
             background = new Background();
             player = new Player();
-            ground = new Ground(new Rectangle(0, 345, 1000, 10));
+            ground = new Ground(new Rectangle(0, 400, 1000, 10));
 
             collidables = new ArrayList();
             enemies = new List<Enemy>();
@@ -37,8 +37,8 @@ namespace Opinnaytetyo
 
         public void init()
         {
-            background.init(Loading.backgroundImage1, new Vector2(0, 0));
-            player.init(Loading.spacemanImage, new Vector2(0, 270));
+            background.init(Loading.backgroundImage2, new Vector2(0, 0));
+            player.init(Loading.spacemanImage, new Vector2(0, 340));
 
             // Temporary stuff
             testEnm = new Enemy(Loading.soldierImage, new Vector2(200, 200), MainGame.enemyClass.NORMAL);

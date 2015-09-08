@@ -22,6 +22,7 @@ namespace Opinnaytetyo
         public static Texture2D spacemanImage;
         public static Texture2D soldierImage;
         public static Texture2D backgroundImage1;
+        public static Texture2D backgroundImage2;
         public static Texture2D fireballImage;
         public static Texture2D bulletImage;
         public static Texture2D banditImage;
@@ -82,6 +83,7 @@ namespace Opinnaytetyo
             spacemanImage = content.Load<Texture2D>("Spaceman.png");
             soldierImage = content.Load<Texture2D>("soldier.png");
             backgroundImage1 = content.Load<Texture2D>("palmuict.png");
+            backgroundImage2 = content.Load<Texture2D>("ICTG.png");
             fireballImage = content.Load<Texture2D>("fireball.png");
             bulletImage = content.Load<Texture2D>("spacebullet.png");
             banditImage = content.Load<Texture2D>("bandit.png");
@@ -102,6 +104,7 @@ namespace Opinnaytetyo
 
             playerImage.Dispose();
             backgroundImage1.Dispose();
+           // backgroundImage2.Dispose();
             loading1Tex.Dispose();
             fireballImage.Dispose();
             banditImage.Dispose();
