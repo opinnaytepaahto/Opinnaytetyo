@@ -52,6 +52,8 @@ namespace Opinnaytetyo
             jCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
             sCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+            CollisionManager.bulletCollision(bullets);
+
             handleMovement();
             applyFrictionAndGravity();
             keepOnScreen();

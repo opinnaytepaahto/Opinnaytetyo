@@ -27,6 +27,13 @@ namespace Opinnaytetyo
             EXIT
         }
 
+        public enum enemyClass
+        {
+            NORMAL,
+            ROGUE,
+            TANK
+        }
+
         public static state currentState;
 
         // State entities

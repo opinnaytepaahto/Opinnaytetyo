@@ -16,7 +16,12 @@ namespace Opinnaytetyo
         private Player player;
         private Ground ground;
 
+        // Temporary stuff
+        private Enemy testEnm;
+
         public static ArrayList collidables;
+
+        public static List<Enemy> enemies;
 
         public GameStage()
         {
@@ -25,6 +30,7 @@ namespace Opinnaytetyo
             ground = new Ground(new Rectangle(0, 345, 1000, 10));
 
             collidables = new ArrayList();
+            enemies = new List<Enemy>();
 
             collidables.Add(ground);
         }
@@ -32,7 +38,14 @@ namespace Opinnaytetyo
         public void init()
         {
             background.init(Loading.backgroundImage1, new Vector2(0, 0));
-            player.init(Loading.spacemanImage, new Vector2(0, 290));
+            player.init(Loading.spacemanImage, new Vector2(0, 270));
+
+            // Temporary stuff
+            testEnm = new Enemy(Loading.armyImage, new Vector2(200, 200), MainGame.enemyClass.NORMAL);
+            testEnm.init();
+
+            collidables.Add(testEnm);
+            enemies.Add(testEnm);
 
             initialized = true;
         }
@@ -40,6 +53,17 @@ namespace Opinnaytetyo
         public void update(GameTime gameTime)
         {
             player.update(gameTime);
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                enemies[i].update(gameTime);
+
+                if (enemies[i].needsKill)
+                {
+                    enemies.RemoveAt(i);
+                    collidables.RemoveAt(i + 1);
+                }
+            }
         }
 
         public void render(GameTime gameTime, SpriteBatch batch)
@@ -48,6 +72,11 @@ namespace Opinnaytetyo
             {
                 background.render(batch);
                 player.render(batch);
+
+                for (int i = 0; i < enemies.Count; i++)
+                {
+                    enemies[i].render(batch);
+                }
             }
         }
     }

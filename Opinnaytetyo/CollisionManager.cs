@@ -35,6 +35,21 @@ namespace Opinnaytetyo
             return true;
         }
 
+        public static void bulletCollision(List<Projectile> bullets)
+        {
+            for (int i = 0; i < GameStage.enemies.Count; i++)
+            {
+                for (int j = 0; j < bullets.Count; j++)
+                {
+                    if (GameStage.enemies[i].getBounds().Intersects(bullets[j].getBounds()))
+                    {
+                        GameStage.enemies[i].hit = true;
+                        bullets.RemoveAt(j);
+                    }
+                }
+            }
+        }
+
         //public static void checkButtonCollision(Player entity1, PlayerButton entity2)
         //{
         //    if (entity1.getBounds().Intersects(entity2.getBounds()))
