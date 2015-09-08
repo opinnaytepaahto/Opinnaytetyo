@@ -144,11 +144,11 @@ namespace Opinnaytetyo
                 sCooldown = 0.7f;
                 if (flipped)
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X - 10, position.Y + 15), flipped));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X - 10, position.Y + 20), flipped));
                 }
                 else
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X + 15, position.Y + 15), flipped));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X + 15, position.Y + 20), flipped));
                 }
             }
         }
