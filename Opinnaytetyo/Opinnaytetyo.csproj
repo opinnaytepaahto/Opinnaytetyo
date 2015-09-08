@@ -102,6 +102,9 @@
     <Content Include="Content\player.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\soldier.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\spacebullet.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
