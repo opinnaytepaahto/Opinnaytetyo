@@ -59,6 +59,7 @@ namespace Opinnaytetyo
             keepOnScreen();
             moveIfPossible();
             stopIfBlocked();
+            enemygravity();
 
             Console.WriteLine("Velocity: " + velocity.X + ", " + velocity.Y);
 
@@ -81,6 +82,11 @@ namespace Opinnaytetyo
                     bullets.RemoveAt(i);
                 }
             }
+        }
+
+        private void enemygravity()
+        {
+            //throw new NotImplementedException();
         }
 
         public override void render(SpriteBatch batch)

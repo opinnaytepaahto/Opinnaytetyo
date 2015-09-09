@@ -24,6 +24,8 @@ namespace Opinnaytetyo
 
             this.textureRectangle = texture.Bounds;
 
+            gravity = 0.0f;
+
             hit = false;
             needsKill = false;
 
@@ -32,11 +34,12 @@ namespace Opinnaytetyo
 
         public void init()
         {
-            switch(enemyClass)
+            switch (enemyClass)
             {
                 case MainGame.enemyClass.NORMAL:
                     health = 100;
                     speed = 100;
+                    gravity = 1.3f;
                     break;
             }
         }

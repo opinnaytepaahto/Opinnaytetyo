@@ -104,7 +104,7 @@ namespace Opinnaytetyo
 
             playerImage.Dispose();
             backgroundImage1.Dispose();
-           // backgroundImage2.Dispose();
+            backgroundImage2.Dispose();
             loading1Tex.Dispose();
             fireballImage.Dispose();
             banditImage.Dispose();
