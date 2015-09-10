@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.BitmapFonts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace Opinnaytetyo
         private Player player;
         private Ground ground;
 
+        private int score;
+
         // Temporary stuff
         private Enemy testEnm;
 
@@ -31,6 +34,8 @@ namespace Opinnaytetyo
 
             collidables = new ArrayList();
             enemies = new List<Enemy>();
+
+            score = 0;
 
             collidables.Add(ground);
         }
@@ -62,6 +67,7 @@ namespace Opinnaytetyo
                 {
                     enemies.RemoveAt(i);
                     collidables.RemoveAt(i + 1);
+                    score += 10;
                 }
             }
         }
@@ -72,6 +78,8 @@ namespace Opinnaytetyo
             {
                 background.render(batch);
                 player.render(batch);
+
+                batch.DrawString(Loading.mainFont, "SCORE: " + score, new Vector2(650, 30), Color.White);
 
                 for (int i = 0; i < enemies.Count; i++)
                 {

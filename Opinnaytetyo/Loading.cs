@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.BitmapFonts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace Opinnaytetyo
         public static Texture2D banditImage;
         public static Texture2D playButtonImage;
         public static Texture2D exitButtonImage;
+        public static BitmapFont mainFont;
 
         public static Texture2D loading1Tex;
         public static Background loading1;
@@ -89,6 +91,7 @@ namespace Opinnaytetyo
             banditImage = content.Load<Texture2D>("bandit.png");
             playButtonImage = content.Load<Texture2D>("Play.png");
             exitButtonImage = content.Load<Texture2D>("Exit.png");
+            mainFont = content.Load<BitmapFont>("mainFont");
 
             // Thread.Sleep(2500);
 
