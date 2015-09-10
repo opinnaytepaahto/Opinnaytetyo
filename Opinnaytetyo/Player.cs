@@ -17,6 +17,10 @@ namespace Opinnaytetyo
         private float sCooldown;
 
         public static Vector2 playerPosStatic;
+        public static Rectangle playerRectangleStatic;
+
+        public int health;
+        public bool hit;
 
         private SpriteEffects flipEffect;
         private bool flipped;
@@ -34,6 +38,7 @@ namespace Opinnaytetyo
 
             textureRectangle = texture.Bounds;
 
+            health = 500;
             speed = 0.5f;
             friction = 0.15f;
             gravity = 1.3f;
@@ -55,6 +60,7 @@ namespace Opinnaytetyo
             sCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             CollisionManager.bulletCollision(bullets);
+            CollisionManager.enemyBulletCollision(Enemy.enemyBullets);
 
             handleMovement();
             applyFrictionAndGravity();
@@ -85,7 +91,20 @@ namespace Opinnaytetyo
                 }
             }
 
+            if (hit)
+            {
+                health -= 100;
+
+                hit = false;
+            }
+
+            if (health <= 0)
+            {
+                MainGame.currentState = MainGame.state.EXIT;
+            }
+
             playerPosStatic = position;
+            playerRectangleStatic = textureRectangle;
         }
 
         private void enemygravity()

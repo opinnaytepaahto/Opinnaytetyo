@@ -14,7 +14,7 @@ namespace Opinnaytetyo
         public static bool initialized = false;
 
         private Background background;
-        private Player player;
+        public static Player player;
         private Ground ground;
 
         private int score;
@@ -80,7 +80,8 @@ namespace Opinnaytetyo
                 background.render(batch);
                 player.render(batch);
 
-                batch.DrawString(Loading.mainFont, "SCORE: " + score, new Vector2(650, 30), Color.White);
+                batch.DrawString(Loading.mainFont, "SCORE: " + score, new Vector2(650, 70), Color.White);
+                batch.DrawString(Loading.mainFont, "HEALTH: " + player.health, new Vector2(650, 30), Color.White);
 
                 for (int i = 0; i < enemies.Count; i++)
                 {

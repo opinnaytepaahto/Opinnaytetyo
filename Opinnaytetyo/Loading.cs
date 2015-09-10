@@ -26,6 +26,7 @@ namespace Opinnaytetyo
         public static Texture2D backgroundImage2;
         public static Texture2D fireballImage;
         public static Texture2D bulletImage;
+        public static Texture2D soldierBulletImage;
         public static Texture2D banditImage;
         public static Texture2D playButtonImage;
         public static Texture2D exitButtonImage;
@@ -88,6 +89,7 @@ namespace Opinnaytetyo
             backgroundImage2 = content.Load<Texture2D>("ICTG.png");
             fireballImage = content.Load<Texture2D>("fireball.png");
             bulletImage = content.Load<Texture2D>("spacebullet.png");
+            soldierBulletImage = content.Load<Texture2D>("soldierbullet.png");
             banditImage = content.Load<Texture2D>("bandit.png");
             playButtonImage = content.Load<Texture2D>("Play.png");
             exitButtonImage = content.Load<Texture2D>("Exit.png");
