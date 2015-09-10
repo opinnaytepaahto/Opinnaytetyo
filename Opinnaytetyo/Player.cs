@@ -16,6 +16,8 @@ namespace Opinnaytetyo
         private float jCooldown;
         private float sCooldown;
 
+        public static Vector2 playerPosStatic;
+
         private SpriteEffects flipEffect;
         private bool flipped;
 
@@ -82,6 +84,8 @@ namespace Opinnaytetyo
                     bullets.RemoveAt(i);
                 }
             }
+
+            playerPosStatic = position;
         }
 
         private void enemygravity()
@@ -136,7 +140,7 @@ namespace Opinnaytetyo
                 jCooldown = 0.5f;
                 velocity -= Vector2.UnitY * 30.0f;
             }
-            if (InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down))
+            if ((InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down)) && textureRectangle.Bottom <= MainMenu.ground.textureRectangle.Top - 1)
             {
                 collide = false;
             }

@@ -18,8 +18,8 @@ namespace Opinnaytetyo
         private PlayerButton playButton;
         private PlayerButton exitButton;
         private Player player;
-        private Ground ground;
 
+        public static Ground ground;
         public static ArrayList collidables;
 
         public MainMenu()

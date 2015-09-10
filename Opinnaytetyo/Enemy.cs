@@ -12,10 +12,14 @@ namespace Opinnaytetyo
         MainGame.enemyClass enemyClass;
 
         public int health;
-        private int speed;
+
+        private float speed;
 
         public bool hit;
         public bool needsKill;
+
+        private SpriteEffects flipEffect;
+        private bool flipped;
 
         public Enemy(Texture2D texture, Vector2 position, MainGame.enemyClass enemyClass)
         {
@@ -30,6 +34,9 @@ namespace Opinnaytetyo
             needsKill = false;
 
             this.enemyClass = enemyClass;
+
+            flipEffect = SpriteEffects.FlipHorizontally;
+            flipped = false;        
         }
 
         public void init()
@@ -60,13 +67,29 @@ namespace Opinnaytetyo
                 hit = false;
             }
 
+            if (Player.playerPosStatic.X < position.X)
+            {
+                flipped = true;
+            }
+            else
+            {
+                flipped = false;
+            }
+
             Console.WriteLine("Enemy health: " + health);
             Console.WriteLine("Enemy needs kill: " + needsKill);
         }
 
         public override void render(SpriteBatch batch)
         {
-            base.render(batch);
+            if (flipped)
+            {
+                batch.Draw(texture, position, null, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
+            }
+            else
+            {
+                batch.Draw(texture, position, null, Color.White);
+            }
         }
     }
 }

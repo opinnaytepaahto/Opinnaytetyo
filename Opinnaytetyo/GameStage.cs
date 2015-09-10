@@ -46,7 +46,8 @@ namespace Opinnaytetyo
             player.init(Loading.spacemanImage, new Vector2(0, 340));
 
             // Temporary stuff
-            testEnm = new Enemy(Loading.soldierImage, new Vector2(200, 345), MainGame.enemyClass.NORMAL);
+            testEnm = new Enemy(Loading.soldierImage, new Vector2(0, 0), MainGame.enemyClass.NORMAL);
+            testEnm.position = new Vector2(200, 399 - testEnm.texture.Height);
             testEnm.init();
 
             collidables.Add(testEnm);
