@@ -60,6 +60,14 @@ namespace Opinnaytetyo
         {
             player.update(gameTime);
 
+            if (enemies.Count == 0)
+            {
+                enemies.Add(new Enemy(Loading.soldierImage, new Vector2(0, 0), MainGame.enemyClass.NORMAL));
+                enemies[0].position = new Vector2(200, 399 - testEnm.texture.Height);
+
+                enemies[0].init();
+            }
+
             for (int i = 0; i < enemies.Count; i++)
             {
                 enemies[i].update(gameTime);
@@ -67,7 +75,6 @@ namespace Opinnaytetyo
                 if (enemies[i].needsKill)
                 {
                     enemies.RemoveAt(i);
-                    collidables.RemoveAt(i + 1);
                     score += 10;
                 }
             }
@@ -83,7 +90,7 @@ namespace Opinnaytetyo
                 batch.DrawString(Loading.mainFont, "SCORE: " + score, new Vector2(650, 70), Color.White);
                 batch.DrawString(Loading.mainFont, "HEALTH: " + player.health, new Vector2(650, 30), Color.White);
 
-                for (int i = 0; i < enemies.Count; i++)
+                for (int i = 0; i < enemies.Count; i++) 
                 {
                     enemies[i].render(batch);
                 }
