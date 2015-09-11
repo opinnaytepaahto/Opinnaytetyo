@@ -51,22 +51,13 @@ namespace Opinnaytetyo
             enemies = new List<Enemy>();
 
             score = 0;
-
-            collidables.Add(ground);
-            collidables.Add(nextButton);
-            collidables.Add(platform);
-            collidables.Add(platform1);
-            collidables.Add(platform2);
-            collidables.Add(platform3);
-            collidables.Add(platform4);
-            collidables.Add(platform5);
         }
 
         public void init()
         {
             background.init(Loading.backgroundImage2, new Vector2(0, 0));
             player.init(Loading.spacemanImage, new Vector2(0, 340));
-            nextButton.init(Loading.nextImage, new Vector2(50, 250), "NEXT");
+            nextButton.init(Loading.nextImage, new Vector2(100, 200), "NEXT");
             platform.init(Loading.platformImage, new Vector2(525, 300));
             platform1.init(Loading.platformImage, new Vector2(375, 250));
             platform2.init(Loading.platformImage, new Vector2(450, 150));
@@ -79,14 +70,16 @@ namespace Opinnaytetyo
             testEnm.position = new Vector2(200, 399 - testEnm.texture.Height);
             testEnm.init();
 
-            // mageEnm = new Enemy(Loading.wizardImage, new Vector2(0, 0), MainGame.enemyClass.MAGE);
-            // mageEnm.position = new Vector2(449, 149 - mageEnm.texture.Height);
-            // mageEnm.init();
+            mageEnm = new Enemy(Loading.wizardImage, new Vector2(0, 0), MainGame.enemyClass.MAGE);
+            mageEnm.position = new Vector2(449, 149 - mageEnm.texture.Height);
+            mageEnm.init();
+
+            enemies.Add(testEnm);
+            enemies.Add(mageEnm);
 
             collidables.Add(testEnm);
-            enemies.Add(testEnm);
-            // collidables.Add(mageEnm);
-            // enemies.Add(mageEnm);
+            collidables.Add(mageEnm);
+            collidables.Add(ground);
             collidables.Add(nextButton);
             collidables.Add(platform);
             collidables.Add(platform1);
@@ -116,6 +109,7 @@ namespace Opinnaytetyo
                 if (enemies[i].needsKill)
                 {
                     enemies.RemoveAt(i);
+                    collidables.RemoveAt(i);
                     score += 10;
                 }
             }
