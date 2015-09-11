@@ -70,7 +70,6 @@ C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\O
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Opinnaytetyo.pdb
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\MonoGame.Framework.dll
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\OpenTK.dll
-C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.csprojResolveAssemblyReference.cache
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\bandit.png
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Exit.png
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\fireball.png

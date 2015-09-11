@@ -33,7 +33,7 @@ namespace Opinnaytetyo
                         MainGame.currentState = MainGame.state.EXIT;
                         break;
                     case "NEXT":
-                        MainGame.currentState = MainGame.state.EXIT;
+                        GameStage.currentLevel = GameStage.Level.LEVEL2;
                         break;
                 }
             }

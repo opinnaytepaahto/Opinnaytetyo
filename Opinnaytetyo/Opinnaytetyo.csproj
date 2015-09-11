@@ -49,6 +49,8 @@
     <Compile Include="GameStage.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="InputManager.cs" />
+    <Compile Include="Level1.cs" />
+    <Compile Include="Level2.cs" />
     <Compile Include="Loading.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="MainMenu.cs" />

@@ -22,7 +22,7 @@ namespace Opinnaytetyo
                     }
                     break;
                 case MainGame.state.PLAY:
-                    foreach (Entity e in GameStage.collidables)
+                    foreach (Entity e in Level1.collidables)
                     {
                         if (bounds.Intersects(e.getBounds()))
                         {
@@ -37,13 +37,13 @@ namespace Opinnaytetyo
 
         public static void bulletCollision(List<Projectile> bullets)
         {
-            for (int i = 0; i < GameStage.enemies.Count; i++)
+            for (int i = 0; i < Level1.enemies.Count; i++)
             {
                 for (int j = 0; j < bullets.Count; j++)
                 {
-                    if (GameStage.enemies[i].getBounds().Intersects(bullets[j].getBounds()))
+                    if (Level1.enemies[i].getBounds().Intersects(bullets[j].getBounds()))
                     {
-                        GameStage.enemies[i].hit = true;
+                        Level1.enemies[i].hit = true;
                         bullets.RemoveAt(j);
                     }
                 }
@@ -58,15 +58,31 @@ namespace Opinnaytetyo
                 {
                     if (Player.playerRectangleStatic.Intersects(enemyBullets[i].getBounds()))
                     {
-                        GameStage.player.hit = true;
-
-                        if (enemyBullets[i].id == "soldier")
+                        if (GameStage.currentLevel == GameStage.Level.LEVEL1)
                         {
-                            GameStage.player.currentHit = Player.HitType.SOLDIER;
+                            Level1.player.hit = true;
+
+                            if (enemyBullets[i].id == "soldier")
+                            {
+                                Level1.player.currentHit = Player.HitType.SOLDIER;
+                            }
+
+                            enemyBullets.RemoveAt(i);
                         }
 
-                        enemyBullets.RemoveAt(i);
+                        if (GameStage.currentLevel == GameStage.Level.LEVEL2)
+                        {
+                            Level2.player.hit = true;
+
+                            if (enemyBullets[i].id == "soldier")
+                            {
+                                Level2.player.currentHit = Player.HitType.SOLDIER;
+                            }
+
+                            enemyBullets.RemoveAt(i);
+                        }
                     }
+
                 }
             }
         }

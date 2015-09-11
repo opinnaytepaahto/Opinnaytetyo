@@ -104,9 +104,6 @@ namespace Opinnaytetyo
             {
                 enemyBullets[i].update(gameTime);
             }
-
-            Console.WriteLine("Enemy health: " + health);
-            Console.WriteLine("Enemy needs kill: " + needsKill);
         }
 
         public override void render(SpriteBatch batch)
@@ -128,7 +125,7 @@ namespace Opinnaytetyo
 
         private void shootSoldier()
         {
-            if (shootTimer <= 0 && Player.playerRectangleStatic.Bottom > textureRectangle.Top)
+            if (shootTimer <= 0 && Player.playerRectangleStatic.Bottom > textureRectangle.Top && Player.playerRectangleStatic.Top < textureRectangle.Bottom)
             {
                 shootTimer = 1.5f;
                 if (flipped)
@@ -144,16 +141,16 @@ namespace Opinnaytetyo
 
         private void shootMagic()
         {
-            if (shootTimer <= 0 && Player.playerRectangleStatic.Bottom > textureRectangle.Top)
+            if (shootTimer <= 0 && Player.playerRectangleStatic.Bottom > textureRectangle.Top && Player.playerRectangleStatic.Top < textureRectangle.Bottom)
             {
                 shootTimer = 2.0f;
                 if (flipped)
                 {
-                    enemyBullets.Add(new Projectile(Loading.fireballImage, new Vector2(position.X - 10, position.Y + 20), flipped, "magic"));
+                    enemyBullets.Add(new Projectile(Loading.fireballImage, new Vector2(position.X - 10, position.Y + 10), flipped, "magic"));
                 }
                 else
                 {
-                    enemyBullets.Add(new Projectile(Loading.fireballImage, new Vector2(position.X + 15, position.Y + 20), flipped, "magic"));
+                    enemyBullets.Add(new Projectile(Loading.fireballImage, new Vector2(position.X + 15, position.Y + 10), flipped, "magic"));
                 }
             }
         }
