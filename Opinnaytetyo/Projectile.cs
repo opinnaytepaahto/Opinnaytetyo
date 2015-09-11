@@ -12,12 +12,16 @@ namespace Opinnaytetyo
         private bool flipped;
         private SpriteEffects flipEffect;
 
+        public String id;
+
         public float timer;
 
-        public Projectile(Texture2D texture, Vector2 position, bool flipped)
+        public Projectile(Texture2D texture, Vector2 position, bool flipped, String id)
         {
             this.texture = texture;
             this.position = position;
+
+            this.id = id;
 
             this.flipped = flipped;
             flipEffect = SpriteEffects.FlipHorizontally;

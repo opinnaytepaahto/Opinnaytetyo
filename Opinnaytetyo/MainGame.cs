@@ -31,7 +31,8 @@ namespace Opinnaytetyo
         {
             NORMAL,
             ROGUE,
-            TANK
+            TANK,
+            MAGE
         }
 
         public static state currentState;

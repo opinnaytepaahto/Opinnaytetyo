@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Olli/Documents/Visual Studio 2015/Projects/Opinnaytetyo/Opinnaytetyo/Content/mainFont.fnt</SourceFile>
-  <SourceTime>2015-09-10T14:11:50.1101772+03:00</SourceTime>
-  <DestFile>C:/Users/Olli/Documents/Visual Studio 2015/Projects/Opinnaytetyo/Opinnaytetyo/Content/bin/WindowsGL/mainFont.xnb</DestFile>
-  <DestTime>2015-09-11T10:02:55.7866572+03:00</DestTime>
+  <SourceFile>C:/Users/Ranger/Documents/GitHub/Opinnaytetyo/Opinnaytetyo/Content/mainFont.fnt</SourceFile>
+  <SourceTime>2015-09-10T12:30:52.6936792+03:00</SourceTime>
+  <DestFile>C:/Users/Ranger/Documents/GitHub/Opinnaytetyo/Opinnaytetyo/Content/bin/WindowsGL/mainFont.xnb</DestFile>
+  <DestTime>2015-09-11T08:02:40.4921324+03:00</DestTime>
   <Importer>BitmapFontImporter</Importer>
-  <ImporterTime>2015-09-10T13:53:45.3914548+03:00</ImporterTime>
+  <ImporterTime>2015-09-10T12:30:52.9191496+03:00</ImporterTime>
   <Processor>BitmapFontProcessor</Processor>
-  <ProcessorTime>2015-09-10T13:53:45.3914548+03:00</ProcessorTime>
+  <ProcessorTime>2015-09-10T12:30:52.9191496+03:00</ProcessorTime>
   <Dependencies />
   <BuildAsset />
   <BuildOutput />

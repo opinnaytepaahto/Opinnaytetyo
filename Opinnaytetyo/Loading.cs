@@ -19,7 +19,7 @@ namespace Opinnaytetyo
         private volatile bool loadingComplete;
 
         // Public variables
-        public static Texture2D playerImage;
+        public static Texture2D wizardImage;
         public static Texture2D spacemanImage;
         public static Texture2D soldierImage;
         public static Texture2D backgroundImage1;
@@ -30,6 +30,8 @@ namespace Opinnaytetyo
         public static Texture2D banditImage;
         public static Texture2D playButtonImage;
         public static Texture2D exitButtonImage;
+        public static Texture2D platformImage;
+        public static Texture2D nextImage;
         public static BitmapFont mainFont;
 
         public static Texture2D loading1Tex;
@@ -82,7 +84,7 @@ namespace Opinnaytetyo
 
             loading = false;
 
-            playerImage = content.Load<Texture2D>("player.png");
+            wizardImage = content.Load<Texture2D>("wizard.png");
             spacemanImage = content.Load<Texture2D>("Spaceman.png");
             soldierImage = content.Load<Texture2D>("soldier.png");
             backgroundImage1 = content.Load<Texture2D>("palmuict.png");
@@ -93,6 +95,8 @@ namespace Opinnaytetyo
             banditImage = content.Load<Texture2D>("bandit.png");
             playButtonImage = content.Load<Texture2D>("Play.png");
             exitButtonImage = content.Load<Texture2D>("Exit.png");
+            nextImage = content.Load<Texture2D>("NEXT.png");
+            platformImage = content.Load<Texture2D>("platform.png");
             mainFont = content.Load<BitmapFont>("mainFont");
 
             // Thread.Sleep(2500);
@@ -107,12 +111,13 @@ namespace Opinnaytetyo
             loading3Tex.Dispose();
             loading4Tex.Dispose();
 
-            playerImage.Dispose();
+            wizardImage.Dispose();
             backgroundImage1.Dispose();
             backgroundImage2.Dispose();
             loading1Tex.Dispose();
             fireballImage.Dispose();
             banditImage.Dispose();
+            platformImage.Dispose();
         }
 
         public void update(GameTime gameTime)

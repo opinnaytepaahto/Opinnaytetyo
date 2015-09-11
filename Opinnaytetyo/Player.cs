@@ -22,6 +22,14 @@ namespace Opinnaytetyo
         public int health;
         public bool hit;
 
+        public enum HitType
+        {
+            SOLDIER,
+            MAGIC
+        }
+
+        public HitType currentHit;
+
         private SpriteEffects flipEffect;
         private bool flipped;
 
@@ -93,7 +101,15 @@ namespace Opinnaytetyo
 
             if (hit)
             {
-                health -= 100;
+               switch(currentHit)
+                {
+                    case HitType.SOLDIER:
+                        health -= 100;
+                        break;
+                    case HitType.MAGIC:
+                        health -= 250;
+                        break;
+                }
 
                 hit = false;
             }
@@ -173,11 +189,11 @@ namespace Opinnaytetyo
                 sCooldown = 0.7f;
                 if (flipped)
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X - 10, position.Y + 20), flipped));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X - 10, position.Y + 20), flipped, "kuti"));
                 }
                 else
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X + 15, position.Y + 20), flipped));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X + 15, position.Y + 20), flipped, "kuti"));
                 }
             }
         }

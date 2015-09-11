@@ -54,6 +54,12 @@ namespace Opinnaytetyo
                     speed = 100;
                     gravity = 1.3f;
                     break;
+
+                case MainGame.enemyClass.MAGE:
+                    health = 50;
+                    speed = 100;
+                    gravity = 1.3f;
+                    break;
             }
         }
 
@@ -61,17 +67,14 @@ namespace Opinnaytetyo
         {
             base.update(gameTime);
 
-            if (shootTimer <= 0 && Player.playerRectangleStatic.Bottom > textureRectangle.Top)
+            switch(enemyClass)
             {
-                shootTimer = 1.5f;
-                if (flipped)
-                {
-                    enemyBullets.Add(new Projectile(Loading.soldierBulletImage, new Vector2(position.X - 10, position.Y + 20), flipped));
-                }
-                else
-                {
-                    enemyBullets.Add(new Projectile(Loading.soldierBulletImage, new Vector2(position.X + 15, position.Y + 20), flipped));
-                }
+                case MainGame.enemyClass.NORMAL:
+                    shootSoldier();
+                    break;
+                case MainGame.enemyClass.MAGE:
+                    shootMagic();
+                    break;
             }
 
             shootTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -120,6 +123,38 @@ namespace Opinnaytetyo
             for (int i = 0; i < enemyBullets.Count; i++)
             {
                 enemyBullets[i].render(batch);
+            }
+        }
+
+        private void shootSoldier()
+        {
+            if (shootTimer <= 0 && Player.playerRectangleStatic.Bottom > textureRectangle.Top)
+            {
+                shootTimer = 1.5f;
+                if (flipped)
+                {
+                    enemyBullets.Add(new Projectile(Loading.soldierBulletImage, new Vector2(position.X - 10, position.Y + 20), flipped, "soldier"));
+                }
+                else
+                {
+                    enemyBullets.Add(new Projectile(Loading.soldierBulletImage, new Vector2(position.X + 15, position.Y + 20), flipped, "soldier"));
+                }
+            }
+        }
+
+        private void shootMagic()
+        {
+            if (shootTimer <= 0 && Player.playerRectangleStatic.Bottom > textureRectangle.Top)
+            {
+                shootTimer = 2.0f;
+                if (flipped)
+                {
+                    enemyBullets.Add(new Projectile(Loading.fireballImage, new Vector2(position.X - 10, position.Y + 20), flipped, "magic"));
+                }
+                else
+                {
+                    enemyBullets.Add(new Projectile(Loading.fireballImage, new Vector2(position.X + 15, position.Y + 20), flipped, "magic"));
+                }
             }
         }
     }

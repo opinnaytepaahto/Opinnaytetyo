@@ -59,6 +59,12 @@ namespace Opinnaytetyo
                     if (Player.playerRectangleStatic.Intersects(enemyBullets[i].getBounds()))
                     {
                         GameStage.player.hit = true;
+
+                        if (enemyBullets[i].id == "soldier")
+                        {
+                            GameStage.player.currentHit = Player.HitType.SOLDIER;
+                        }
+
                         enemyBullets.RemoveAt(i);
                     }
                 }
