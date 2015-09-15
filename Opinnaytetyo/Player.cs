@@ -41,10 +41,10 @@ namespace Opinnaytetyo
     
         public void init(Texture2D texture, Vector2 position)
         {
-            this.texture = texture;
-            this.position = position;
+            this.Texture = texture;
+            this.Position = position;
 
-            textureRectangle = texture.Bounds;
+            Hitbox = texture.Bounds;
 
             health = 500;
             speed = 0.5f;
@@ -53,7 +53,7 @@ namespace Opinnaytetyo
             jCooldown = 0.0f;
             sCooldown = 0.0f;
 
-            velocity = new Vector2(0.0f, 0.0f);
+            Velocity = new Vector2(0.0f, 0.0f);
             bullets = new List<Projectile>();
 
             flipEffect = SpriteEffects.FlipHorizontally;
@@ -77,16 +77,16 @@ namespace Opinnaytetyo
             stopIfBlocked();
             enemygravity();
 
-            Console.WriteLine("Velocity: " + velocity.X + ", " + velocity.Y);
+            Console.WriteLine("Velocity: " + Position.X + ", " + Position.Y);
 
             if (jCooldown <= 0)
             {
                 jCooldown = 0;
             }
 
-            if (velocity.X >= 100)
+            if (Velocity.X >= 100)
             {
-                velocity.X = 100;
+                Velocity = new Vector2(100, 0);
             }
 
             for (int i = 0; i < bullets.Count; i++)
@@ -119,8 +119,8 @@ namespace Opinnaytetyo
                 MainGame.currentState = MainGame.state.EXIT;
             }
 
-            playerPosStatic = position;
-            playerRectangleStatic = textureRectangle;
+            playerPosStatic = Position;
+            playerRectangleStatic = Hitbox;
         }
 
         private void enemygravity()
@@ -134,11 +134,11 @@ namespace Opinnaytetyo
 
             if (flipped)
             {
-                batch.Draw(texture, position, null, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
+                batch.Draw(Texture, Position, null, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
             }
             else
             {
-                batch.Draw(texture, position, null, Color.White);
+                batch.Draw(Texture, Position, null, Color.White);
             }
 
             foreach (Projectile p in bullets)
@@ -149,12 +149,12 @@ namespace Opinnaytetyo
 
         private void moveIfPossible()
         {
-            oldPos = position;
-            position += velocity * (float)gameTime.ElapsedGameTime.TotalMilliseconds / 15;
+            oldPos = Position;
+            Position += Velocity * (float)gameTime.ElapsedGameTime.TotalMilliseconds / 15;
 
             if (collide)
             {
-                position = howLongToMove(oldPos, position, textureRectangle);
+                Position = howLongToMove(oldPos, Position, Hitbox);
             }
         }
 
@@ -162,20 +162,20 @@ namespace Opinnaytetyo
         {
             if (InputManager.isKeyDown(Keys.A) || InputManager.isKeyDown(Keys.Left))
             {
-                velocity -= Vector2.UnitX * speed;
+                Velocity -= Vector2.UnitX * speed;
                 flipped = true;
             }
             if (InputManager.isKeyDown(Keys.D) || InputManager.isKeyDown(Keys.Right))
             {
-                velocity += Vector2.UnitX * speed;
+                Velocity += Vector2.UnitX * speed;
                 flipped = false;
             }
             if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)) && jCooldown <= 0)
             {
                 jCooldown = 0.5f;
-                velocity -= Vector2.UnitY * 30.0f;
+                Velocity -= Vector2.UnitY * 30.0f;
             }
-            if ((InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down)) && textureRectangle.Bottom <= MainMenu.ground.textureRectangle.Top - 1)
+            if ((InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down)) && Hitbox.Bottom <= MainMenu.ground.Hitbox.Top - 1)
             {
                 collide = false;
             }
@@ -189,11 +189,11 @@ namespace Opinnaytetyo
                 sCooldown = 0.7f;
                 if (flipped)
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X - 10, position.Y + 20), flipped, "kuti"));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X - 10, Position.Y + 20), flipped, "kuti"));
                 }
                 else
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(position.X + 15, position.Y + 20), flipped, "kuti"));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X + 15, Position.Y + 20), flipped, "kuti"));
                 }
             }
         }
@@ -202,37 +202,37 @@ namespace Opinnaytetyo
         {
 
             // Gravity
-            velocity.Y += gravity;
+            Velocity += new Vector2(0, gravity);
 
             // Friciton
-            velocity -= velocity * Vector2.One * friction;
+            Velocity -= Velocity * Vector2.One * friction;
         }
 
         private void keepOnScreen()
         {
-            if (position.X < 0)
+            if (Position.X < 0)
             {
-                velocity.X = 0;
-                position.X = 0;
+                Velocity =  new Vector2(0, 0);
+                Position = new Vector2(0, Position.Y);
             }
-            if (position.X > MainGame.windowWidth - textureRectangle.Width)
+            if (Position.X > MainGame.windowWidth - Hitbox.Width)
             {
-                velocity.X = 0;
-                position.X = MainGame.windowWidth - textureRectangle.Width;
+                Velocity = new Vector2(0, Position.Y);
+                Position = new Vector2(MainGame.windowWidth - Hitbox.Width, 0);
             }
         }
 
         void stopIfBlocked()
         {
-            Vector2 lastVelocity = position - oldPos;
+            Vector2 lastVelocity = Position - oldPos;
 
             if (lastVelocity.X == 0)
             {
-                velocity *= Vector2.UnitY;
+                Velocity *= Vector2.UnitY;
             }
             if (lastVelocity.Y == 0)
             {
-                velocity *= Vector2.UnitX;
+                Velocity *= Vector2.UnitX;
             }
         }
 

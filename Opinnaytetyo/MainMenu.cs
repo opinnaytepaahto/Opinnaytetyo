@@ -50,8 +50,8 @@ namespace Opinnaytetyo
         public void update(GameTime gameTime)
         {
             player.update(gameTime);
-            playButton.update(gameTime, player.getBounds());
-            exitButton.update(gameTime, player.getBounds());
+            playButton.update(gameTime, player.Hitbox);
+            exitButton.update(gameTime, player.Hitbox);
         }
 
         public void render(GameTime gameTime, SpriteBatch batch)

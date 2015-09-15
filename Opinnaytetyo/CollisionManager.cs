@@ -15,7 +15,7 @@ namespace Opinnaytetyo
                 case MainGame.state.MENU:
                     foreach (Entity e in MainMenu.collidables)
                     {
-                        if (bounds.Intersects(e.getBounds()))
+                        if (bounds.Intersects(e.Hitbox))
                         {
                             return false;
                         }
@@ -24,7 +24,7 @@ namespace Opinnaytetyo
                 case MainGame.state.PLAY:
                     foreach (Entity e in Level1.collidables)
                     {
-                        if (bounds.Intersects(e.getBounds()))
+                        if (bounds.Intersects(e.Hitbox))
                         {
                             return false;
                         }
@@ -41,7 +41,7 @@ namespace Opinnaytetyo
             {
                 for (int j = 0; j < bullets.Count; j++)
                 {
-                    if (Level1.enemies[i].getBounds().Intersects(bullets[j].getBounds()))
+                    if (Level1.enemies[i].Hitbox.Intersects(bullets[j].Hitbox))
                     {
                         Level1.enemies[i].hit = true;
                         bullets.RemoveAt(j);
@@ -56,7 +56,7 @@ namespace Opinnaytetyo
             {
                 for (int i = 0; i < enemyBullets.Count; i++)
                 {
-                    if (Player.playerRectangleStatic.Intersects(enemyBullets[i].getBounds()))
+                    if (Player.playerRectangleStatic.Intersects(enemyBullets[i].Hitbox))
                     {
                         if (GameStage.currentLevel == GameStage.Level.LEVEL1)
                         {

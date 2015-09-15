@@ -16,7 +16,6 @@ C:\Users\Ranger\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\
 C:\Users\Ranger\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.csprojResolveAssemblyReference.cache
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.exe
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.pdb
-C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\player.png
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Opinnaytetyo.exe
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Opinnaytetyo.pdb
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\MonoGame.Framework.dll
@@ -120,3 +119,12 @@ C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\M
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Newtonsoft.Json.dll
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\NEXT.png
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\wizard.png
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Opinnaytetyo.exe.config
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\mainFont.xnb
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\mainFont_0.xnb
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\ICTG.png
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\NEXT.png
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\soldierbullet.png
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\wizard.png
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\MonoGame.Extended.dll
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Newtonsoft.Json.dll

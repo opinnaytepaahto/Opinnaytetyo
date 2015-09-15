@@ -11,10 +11,10 @@ namespace Opinnaytetyo
     {
         public void init(Texture2D texture, Vector2 position)
         {
-            this.texture = texture;
-            this.position = position;
+            this.Texture = texture;
+            this.Position = position;
 
-            this.textureRectangle = texture.Bounds;
+            this.Hitbox = texture.Bounds;
         }
 
         public void update()

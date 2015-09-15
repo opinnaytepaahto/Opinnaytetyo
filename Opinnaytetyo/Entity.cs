@@ -9,13 +9,13 @@ namespace Opinnaytetyo
 {
     abstract class Entity
     {
-        public Vector2 position;
-        public Vector2 velocity;
+        public Vector2 Position { get; set; }
+        public Vector2 Velocity { get; protected set; }
 
         public float gravity;
 
-        public Texture2D texture;
-        public Rectangle textureRectangle;
+        public Texture2D Texture { get; protected set; }
+        public Rectangle Hitbox { get; protected set; }
 
         protected SpriteBatch batch;
         protected GameTime gameTime;
@@ -24,32 +24,14 @@ namespace Opinnaytetyo
         {
             this.gameTime = gameTime;
 
-            textureRectangle.X = (int)position.X;
-            textureRectangle.Y = (int)position.Y;
-            textureRectangle.Width = texture.Width;
-            textureRectangle.Height = texture.Height;
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
         }
 
         public virtual void render(SpriteBatch batch)
         {
             this.batch = batch;
 
-            batch.Draw(texture, position, null, Color.White);
-        }
-
-        public int getWidth()
-        {
-            return textureRectangle.Width;
-        }
-
-        public int getHeight()
-        {
-            return textureRectangle.Height;
-        }
-
-        public Rectangle getBounds()
-        {
-            return textureRectangle;
+            batch.Draw(Texture, Position, null, Color.White);
         }
     }
 }

@@ -18,8 +18,8 @@ namespace Opinnaytetyo
 
         public Projectile(Texture2D texture, Vector2 position, bool flipped, String id)
         {
-            this.texture = texture;
-            this.position = position;
+            this.Texture = texture;
+            this.Position = position;
 
             this.id = id;
 
@@ -28,7 +28,7 @@ namespace Opinnaytetyo
 
             timer = 1.5f;
 
-            this.textureRectangle = texture.Bounds;
+            this.Hitbox = texture.Bounds;
         }
 
         public override void update(GameTime gameTime)
@@ -37,11 +37,11 @@ namespace Opinnaytetyo
 
             if (flipped)
             {
-                 position.X -= 10.0f;
+                 Position -= new Vector2(10.0f, 0);
             }
             else
             {
-                position.X += 10.0f;
+                Position += new Vector2(10.0f, 0);
             }
 
             timer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -53,11 +53,11 @@ namespace Opinnaytetyo
 
             if (flipped)
             {
-                batch.Draw(texture, position, null, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
+                batch.Draw(Texture, Position, null, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
             }
             else
             {
-                batch.Draw(texture, position);
+                batch.Draw(Texture, Position);
             }
         }
     }

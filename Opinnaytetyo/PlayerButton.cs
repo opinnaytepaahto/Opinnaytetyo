@@ -13,8 +13,8 @@ namespace Opinnaytetyo
 
         public void init(Texture2D texture, Vector2 position, String id)
         {
-            this.texture = texture;
-            this.position = position;
+            this.Texture = texture;
+            this.Position = position;
             this.id = id;
         }
 
@@ -22,7 +22,7 @@ namespace Opinnaytetyo
         {
             base.update(gameTime);
 
-            if (textureRectangle.Intersects(bounds))
+            if (Hitbox.Intersects(bounds))
             {
                 switch(id)
                 {

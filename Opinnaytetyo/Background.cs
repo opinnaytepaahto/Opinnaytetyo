@@ -16,10 +16,10 @@ namespace Opinnaytetyo
 
         public void init(Texture2D texture, Vector2 position)
         {
-            this.texture = texture;
-            this.position = position;
+            this.Texture = texture;
+            this.Position = position;
 
-            this.textureRectangle = texture.Bounds;
+            this.Hitbox = texture.Bounds;
 
             backImgWidth = 2450.0f;
             backImgHeight = 1440.0f;
@@ -31,7 +31,7 @@ namespace Opinnaytetyo
         {
             this.batch = spriteBatch;
 
-            batch.Draw(texture, position, textureRectangle, Color.White, 0.0f, new Vector2(0.0f, 0.0f), scale, SpriteEffects.None, 0.0f);
+            batch.Draw(Texture, Position, Hitbox, Color.White, 0.0f, new Vector2(0.0f, 0.0f), scale, SpriteEffects.None, 0.0f);
         }
     }
 }

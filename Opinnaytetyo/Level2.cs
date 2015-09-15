@@ -68,11 +68,11 @@ namespace Opinnaytetyo
 
             // Temporary stuff
             testEnm = new Enemy(Loading.soldierImage, new Vector2(0, 0), MainGame.enemyClass.NORMAL);
-            testEnm.position = new Vector2(200, 399 - testEnm.texture.Height);
+            testEnm.Position = new Vector2(200, 399 - testEnm.Texture.Height);
             testEnm.init();
 
             mageEnm = new Enemy(Loading.wizardImage, new Vector2(0, 0), MainGame.enemyClass.MAGE);
-            mageEnm.position = new Vector2(449, 149 - mageEnm.texture.Height);
+            mageEnm.Position = new Vector2(449, 149 - mageEnm.Texture.Height);
             mageEnm.init();
 
             enemies.Add(testEnm);
@@ -94,7 +94,7 @@ namespace Opinnaytetyo
 
         public void update(GameTime gameTime)
         {
-            nextButton.update(gameTime, player.getBounds());
+            nextButton.update(gameTime, player.Hitbox);
             platform.update(gameTime);
             platform1.update(gameTime);
             platform2.update(gameTime);

@@ -10,11 +10,7 @@ namespace Opinnaytetyo
     {
         public Ground(Rectangle rect)
         {
-            this.textureRectangle.X = rect.X;
-            this.textureRectangle.Y = rect.Y;
-
-            this.textureRectangle.Width = rect.Width;
-            this.textureRectangle.Height = rect.Height;
+            this.Hitbox = new Rectangle(rect.X, rect.Y, rect.Width, rect.Height);
         }
     }
 }
