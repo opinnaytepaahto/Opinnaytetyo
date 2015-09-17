@@ -67,6 +67,11 @@ namespace Opinnaytetyo
                                 Level1.player.currentHit = Player.HitType.SOLDIER;
                             }
 
+                            if (enemyBullets[i].id == "magic")
+                            {
+                                Level1.player.currentHit = Player.HitType.MAGIC;
+                            }
+
                             enemyBullets.RemoveAt(i);
                         }
 
@@ -77,6 +82,10 @@ namespace Opinnaytetyo
                             if (enemyBullets[i].id == "soldier")
                             {
                                 Level2.player.currentHit = Player.HitType.SOLDIER;
+                            }
+                            if (enemyBullets[i].id == "magic")
+                            {
+                                Level1.player.currentHit = Player.HitType.MAGIC;
                             }
 
                             enemyBullets.RemoveAt(i);

@@ -75,8 +75,7 @@ namespace Opinnaytetyo
             keepOnScreen();
             moveIfPossible();
             stopIfBlocked();
-            enemygravity();
-
+          
             Console.WriteLine("Velocity: " + Position.X + ", " + Position.Y);
 
             if (jCooldown <= 0)
@@ -121,11 +120,6 @@ namespace Opinnaytetyo
 
             playerPosStatic = Position;
             playerRectangleStatic = Hitbox;
-        }
-
-        private void enemygravity()
-        {
-            //throw new NotImplementedException();
         }
 
         public override void render(SpriteBatch batch)
@@ -189,11 +183,11 @@ namespace Opinnaytetyo
                 sCooldown = 0.7f;
                 if (flipped)
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X - 10, Position.Y + 20), flipped, "kuti"));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X - 10, Position.Y + 20), flipped, "kuti", 10.0f));
                 }
                 else
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X + 15, Position.Y + 20), flipped, "kuti"));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X + 15, Position.Y + 20), flipped, "kuti", 10.0f));
                 }
             }
         }

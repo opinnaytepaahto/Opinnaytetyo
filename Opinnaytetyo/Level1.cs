@@ -68,11 +68,11 @@ namespace Opinnaytetyo
 
             // Temporary stuff
             testEnm = new Enemy(Loading.soldierImage, new Vector2(0, 0), MainGame.enemyClass.NORMAL);
-            testEnm.Position = new Vector2(200, 399 - testEnm.Texture.Height);
+            testEnm.Position = new Vector2(200, 395 - testEnm.Texture.Height);
             testEnm.init();
 
             mageEnm = new Enemy(Loading.wizardImage, new Vector2(0, 0), MainGame.enemyClass.MAGE);
-            mageEnm.Position = new Vector2(449, 149 - mageEnm.Texture.Height);
+            mageEnm.Position = new Vector2(449, 145 - mageEnm.Texture.Height);
             mageEnm.init();
 
             enemies.Add(testEnm);

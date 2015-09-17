@@ -14,14 +14,18 @@ namespace Opinnaytetyo
 
         public String id;
 
+        public float Speed { get; set; }
+
         public float timer;
 
-        public Projectile(Texture2D texture, Vector2 position, bool flipped, String id)
+        public Projectile(Texture2D texture, Vector2 position, bool flipped, String id, float speed)
         {
             this.Texture = texture;
             this.Position = position;
 
             this.id = id;
+
+            this.Speed = speed;
 
             this.flipped = flipped;
             flipEffect = SpriteEffects.FlipHorizontally;
@@ -37,11 +41,11 @@ namespace Opinnaytetyo
 
             if (flipped)
             {
-                 Position -= new Vector2(10.0f, 0);
+                 Position -= new Vector2(Speed, 0);
             }
             else
             {
-                Position += new Vector2(10.0f, 0);
+                Position += new Vector2(Speed, 0);
             }
 
             timer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
