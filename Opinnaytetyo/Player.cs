@@ -25,7 +25,8 @@ namespace Opinnaytetyo
         public enum HitType
         {
             SOLDIER,
-            MAGIC
+            MAGIC,
+            REAPER
         }
 
         public HitType currentHit;
@@ -75,8 +76,6 @@ namespace Opinnaytetyo
             keepOnScreen();
             moveIfPossible();
             stopIfBlocked();
-          
-            Console.WriteLine("Velocity: " + Position.X + ", " + Position.Y);
 
             if (jCooldown <= 0)
             {
@@ -107,6 +106,9 @@ namespace Opinnaytetyo
                         break;
                     case HitType.MAGIC:
                         health -= 250;
+                        break;
+                    case HitType.REAPER:
+                        health -= 500;
                         break;
                 }
 
@@ -183,11 +185,11 @@ namespace Opinnaytetyo
                 sCooldown = 0.7f;
                 if (flipped)
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X - 10, Position.Y + 20), flipped, "kuti", 10.0f));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X - 10, Position.Y + 20), flipped, "kuti", 10.0f, 1.5f));
                 }
                 else
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X + 15, Position.Y + 20), flipped, "kuti", 10.0f));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X + 15, Position.Y + 20), flipped, "kuti", 10.0f, 1.5f));
                 }
             }
         }

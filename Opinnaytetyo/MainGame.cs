@@ -32,7 +32,8 @@ namespace Opinnaytetyo
             NORMAL,
             ROGUE,
             TANK,
-            MAGE
+            MAGE,
+            REAPER
         }
 
         public static state currentState;

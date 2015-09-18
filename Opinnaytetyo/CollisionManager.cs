@@ -72,6 +72,11 @@ namespace Opinnaytetyo
                                 Level1.player.currentHit = Player.HitType.MAGIC;
                             }
 
+                            if (enemyBullets[i].id == "reaper")
+                            {
+                                Level1.player.currentHit = Player.HitType.REAPER;
+                            }
+
                             enemyBullets.RemoveAt(i);
                         }
 
@@ -86,6 +91,10 @@ namespace Opinnaytetyo
                             if (enemyBullets[i].id == "magic")
                             {
                                 Level1.player.currentHit = Player.HitType.MAGIC;
+                            }
+                            if (enemyBullets[i].id == "reaper")
+                            {
+                                Level1.player.currentHit = Player.HitType.REAPER;
                             }
 
                             enemyBullets.RemoveAt(i);

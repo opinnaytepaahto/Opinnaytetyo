@@ -115,6 +115,12 @@
     <Content Include="Content\Play.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Reaper.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Reaperhit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\soldier.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

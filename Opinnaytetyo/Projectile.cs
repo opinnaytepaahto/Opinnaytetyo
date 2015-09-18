@@ -18,19 +18,18 @@ namespace Opinnaytetyo
 
         public float timer;
 
-        public Projectile(Texture2D texture, Vector2 position, bool flipped, String id, float speed)
+        public Projectile(Texture2D texture, Vector2 position, bool flipped, String id, float speed, float timer)
         {
             this.Texture = texture;
             this.Position = position;
 
             this.id = id;
+            this.timer = timer;
 
             this.Speed = speed;
 
             this.flipped = flipped;
             flipEffect = SpriteEffects.FlipHorizontally;
-
-            timer = 1.5f;
 
             this.Hitbox = texture.Bounds;
         }

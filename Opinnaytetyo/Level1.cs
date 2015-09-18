@@ -30,6 +30,7 @@ namespace Opinnaytetyo
         // Temporary stuff
         private Enemy testEnm;
         private Enemy mageEnm;
+        private Enemy reapEnm;
 
         public static ArrayList collidables;
 
@@ -67,19 +68,25 @@ namespace Opinnaytetyo
             platform5.init(Loading.platformImage, new Vector2(325, 100));
 
             // Temporary stuff
-            testEnm = new Enemy(Loading.soldierImage, new Vector2(0, 0), MainGame.enemyClass.NORMAL);
+            testEnm = new Enemy(Loading.soldierImage, Loading.soldierImage, new Vector2(0, 0), MainGame.enemyClass.NORMAL);
             testEnm.Position = new Vector2(200, 395 - testEnm.Texture.Height);
             testEnm.init();
 
-            mageEnm = new Enemy(Loading.wizardImage, new Vector2(0, 0), MainGame.enemyClass.MAGE);
+            mageEnm = new Enemy(Loading.wizardImage, Loading.wizardImage, new Vector2(0, 0), MainGame.enemyClass.MAGE);
             mageEnm.Position = new Vector2(449, 145 - mageEnm.Texture.Height);
             mageEnm.init();
 
+            reapEnm = new Enemy(Loading.reaperImage, Loading.reaphitImage, new Vector2(0, 0), MainGame.enemyClass.REAPER);
+            reapEnm.Position = new Vector2(449, 395 - reapEnm.Texture.Height);
+            reapEnm.init();
+
             enemies.Add(testEnm);
             enemies.Add(mageEnm);
+            enemies.Add(reapEnm);
 
             collidables.Add(testEnm);
             collidables.Add(mageEnm);
+            collidables.Add(reapEnm);
             collidables.Add(ground);
             collidables.Add(nextButton);
             collidables.Add(platform);

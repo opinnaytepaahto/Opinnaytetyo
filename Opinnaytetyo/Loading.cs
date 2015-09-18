@@ -22,6 +22,8 @@ namespace Opinnaytetyo
         public static Texture2D wizardImage;
         public static Texture2D spacemanImage;
         public static Texture2D soldierImage;
+        public static Texture2D reaperImage;
+        public static Texture2D reaphitImage;
         public static Texture2D backgroundImage1;
         public static Texture2D backgroundImage2;
         public static Texture2D fireballImage;
@@ -87,6 +89,8 @@ namespace Opinnaytetyo
             wizardImage = content.Load<Texture2D>("wizard.png");
             spacemanImage = content.Load<Texture2D>("Spaceman.png");
             soldierImage = content.Load<Texture2D>("soldier.png");
+            reaperImage = content.Load<Texture2D>("reaper.png");
+            reaphitImage = content.Load<Texture2D>("reaperhit.png");
             backgroundImage1 = content.Load<Texture2D>("palmuict.png");
             backgroundImage2 = content.Load<Texture2D>("ICTG.png");
             fireballImage = content.Load<Texture2D>("fireball.png");

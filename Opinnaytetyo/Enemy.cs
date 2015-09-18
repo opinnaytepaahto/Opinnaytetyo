@@ -26,11 +26,14 @@ namespace Opinnaytetyo
 
         private Vector2 oldPos;
 
-        public static List<Projectile> enemyBullets;
+        public Texture2D hitTexture;
 
-        public Enemy(Texture2D texture, Vector2 position, MainGame.enemyClass enemyClass)
+        public static List<Projectile> enemyBullets;
+        
+        public Enemy(Texture2D texture, Texture2D hitTexture, Vector2 position, MainGame.enemyClass enemyClass)
         {
             this.Texture = texture;
+            this.hitTexture = hitTexture;
             this.Position = position;
 
             enemyBullets = new List<Projectile>();
@@ -61,6 +64,10 @@ namespace Opinnaytetyo
                 case MainGame.enemyClass.MAGE:
                     health = 50;
                     break;
+
+                case MainGame.enemyClass.REAPER:
+                    health = 150;
+                    break;
             }
         }
 
@@ -75,6 +82,9 @@ namespace Opinnaytetyo
                     break;
                 case MainGame.enemyClass.MAGE:
                     shootMagic();
+                    break;
+                case MainGame.enemyClass.REAPER:
+                    hitReaper();
                     break;
             }
 
@@ -112,17 +122,48 @@ namespace Opinnaytetyo
             applyFrictionAndGravity();
             moveIfPossible();
             stopIfBlocked();
+
+            for (int i = 0; i < enemyBullets.Count; i++)
+            {
+                enemyBullets[i].update(gameTime);
+
+                if (enemyBullets[i].timer <= 0)
+                {
+                    enemyBullets.RemoveAt(i);
+                }
+            }
+
+            if (shootTimer <= -5)
+            {
+                shootTimer = 2.5f;
+            }
+
+            Console.WriteLine(shootTimer);
         }
 
         public override void render(SpriteBatch batch)
         {
-            if (flipped)
+            if (shootTimer <= 0)
             {
-                batch.Draw(Texture, Position, null, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
+                if (flipped)
+                {
+                    batch.Draw(hitTexture, Position, null, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
+                }
+                else
+                {
+                    batch.Draw(hitTexture, Position, null, Color.White);
+                }
             }
             else
             {
-                batch.Draw(Texture, Position, null, Color.White);
+                if (flipped)
+                {
+                    batch.Draw(Texture, Position, null, Color.White, 0.0f, new Vector2(0.0f, 0.0f), 1.0f, flipEffect, 0.0f);
+                }
+                else
+                {
+                    batch.Draw(Texture, Position, null, Color.White);
+                }
             }
 
             for (int i = 0; i < enemyBullets.Count; i++)
@@ -138,11 +179,11 @@ namespace Opinnaytetyo
                 shootTimer = 1.5f;
                 if (flipped)
                 {
-                    enemyBullets.Add(new Projectile(Loading.soldierBulletImage, new Vector2(Position.X - 10, Position.Y + 20), flipped, "soldier", 10.0f));
+                    enemyBullets.Add(new Projectile(Loading.soldierBulletImage, new Vector2(Position.X - 10, Position.Y + 20), flipped, "soldier", 10.0f, 1.5f));
                 }
                 else
                 {
-                    enemyBullets.Add(new Projectile(Loading.soldierBulletImage, new Vector2(Position.X + 15, Position.Y + 20), flipped, "soldier", 10.0f));
+                    enemyBullets.Add(new Projectile(Loading.soldierBulletImage, new Vector2(Position.X + 15, Position.Y + 20), flipped, "soldier", 10.0f, 1.5f));
                 }
             }
         }
@@ -155,15 +196,29 @@ namespace Opinnaytetyo
 
                 if (flipped)
                 {
-                    enemyBullets.Add(new Projectile(Loading.fireballImage, new Vector2(Position.X - 1, Position.Y + 10), flipped, "magic", 4.0f));
+                    enemyBullets.Add(new Projectile(Loading.fireballImage, new Vector2(Position.X - 1, Position.Y + 10), flipped, "magic", 4.0f, 1.5f));
                 }
                 else
                 {
-                    enemyBullets.Add(new Projectile(Loading.fireballImage, new Vector2(Position.X + 15, Position.Y + 10), flipped, "magic", 4.0f));
+                    enemyBullets.Add(new Projectile(Loading.fireballImage, new Vector2(Position.X + 15, Position.Y + 10), flipped, "magic", 4.0f, 1.5f));
                 }
             }
         }
 
+        private void hitReaper()
+        {
+            if (Player.playerRectangleStatic.Bottom > Hitbox.Top && Player.playerRectangleStatic.Top < Hitbox.Bottom && Hitbox.Intersects(Player.playerRectangleStatic))
+            {
+                if (flipped)
+                {
+                    enemyBullets.Add(new Projectile(Loading.reaphitImage, new Vector2(Position.X - 0, Position.Y + 0), flipped, "reaper", 1.0f, 0.1f));
+                }
+                else
+                {
+                    enemyBullets.Add(new Projectile(Loading.reaphitImage, new Vector2(Position.X + 0, Position.Y + 0), flipped, "reaper", 1.0f, 0.1f));
+                }
+            }
+        }
 
         private void applyFrictionAndGravity()
         {
