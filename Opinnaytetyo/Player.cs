@@ -182,6 +182,7 @@ namespace Opinnaytetyo
 
             if ((InputManager.isKeyDown(Keys.Space)) && sCooldown <= 0)
             {
+                Loading.shootSound.Play();
                 sCooldown = 0.7f;
                 if (flipped)
                 {

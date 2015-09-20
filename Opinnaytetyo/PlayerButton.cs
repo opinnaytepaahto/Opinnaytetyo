@@ -27,6 +27,7 @@ namespace Opinnaytetyo
                 switch(id)
                 {
                     case "play":
+                        Loading.levelChangeSound.Play();
                         MainGame.currentState = MainGame.state.PLAY;
                         break;
                     case "exit":

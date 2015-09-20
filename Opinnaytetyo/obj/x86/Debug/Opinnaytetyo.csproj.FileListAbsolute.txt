@@ -131,3 +131,7 @@ C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytety
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.csprojResolveAssemblyReference.cache
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Reaper.png
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Reaperhit.png
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Reaper.png
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Reaperhit.png
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\shoot.wav
+C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\levelChange.wav

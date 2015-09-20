@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.BitmapFonts;
@@ -35,6 +36,8 @@ namespace Opinnaytetyo
         public static Texture2D platformImage;
         public static Texture2D nextImage;
         public static BitmapFont mainFont;
+        public static SoundEffect shootSound;
+        public static SoundEffect levelChangeSound;
 
         public static Texture2D loading1Tex;
         public static Background loading1;
@@ -102,6 +105,8 @@ namespace Opinnaytetyo
             nextImage = content.Load<Texture2D>("NEXT.png");
             platformImage = content.Load<Texture2D>("platform.png");
             mainFont = content.Load<BitmapFont>("mainFont");
+            shootSound = content.Load<SoundEffect>("shoot.wav");
+            levelChangeSound = content.Load<SoundEffect>("levelChange.wav");
 
             // Thread.Sleep(2500);
 

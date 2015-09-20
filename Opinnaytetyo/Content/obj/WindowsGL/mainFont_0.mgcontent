@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Ranger/Documents/GitHub/Opinnaytetyo/Opinnaytetyo/Content/mainFont_0.png</SourceFile>
-  <SourceTime>2015-09-10T12:30:52.6941794+03:00</SourceTime>
-  <DestFile>C:/Users/Ranger/Documents/GitHub/Opinnaytetyo/Opinnaytetyo/Content/bin/WindowsGL/mainFont_0.xnb</DestFile>
-  <DestTime>2015-09-17T12:02:02.7291811+03:00</DestTime>
+  <SourceFile>C:/Users/Spaceman/Documents/Visual Studio 2015/Projects/Opinnaytetyo/Opinnaytetyo/Content/mainFont_0.png</SourceFile>
+  <SourceTime>2015-09-20T14:33:15.0787094+03:00</SourceTime>
+  <DestFile>C:/Users/Spaceman/Documents/Visual Studio 2015/Projects/Opinnaytetyo/Opinnaytetyo/Content/bin/WindowsGL/mainFont_0.xnb</DestFile>
+  <DestTime>2015-09-20T14:41:07.2061249+03:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T20:14:44+03:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
