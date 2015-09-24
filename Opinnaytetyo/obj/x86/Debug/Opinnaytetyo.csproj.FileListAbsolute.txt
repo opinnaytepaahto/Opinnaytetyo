@@ -135,3 +135,13 @@ C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytety
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Reaperhit.png
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\shoot.wav
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\levelChange.wav
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\levelChange.wav
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\OpenAL32.dll
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\shoot.wav
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\wrap_oal.dll
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\JUMPVOICE.wav
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\HP.png
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\enmdie.wav
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\falldmg.wav
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\enmshot.wav
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\fireball.wav

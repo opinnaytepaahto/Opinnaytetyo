@@ -18,6 +18,11 @@ namespace Opinnaytetyo
         public static Player player;
         private Ground ground;
         private PlayerButton nextButton;
+        private Platform hpHearth;
+        private Platform hpHearth1;
+        private Platform hpHearth2;
+        private Platform hpHearth3;
+        private Platform hpHearth4;
         private Platform platform;
         private Platform platform1;
         private Platform platform2;
@@ -42,6 +47,11 @@ namespace Opinnaytetyo
             player = new Player();
             ground = new Ground(new Rectangle(0, 400, 1000, 10));
             nextButton = new PlayerButton();
+            hpHearth = new Platform();
+            hpHearth1 = new Platform();
+            hpHearth2 = new Platform();
+            hpHearth3 = new Platform();
+            hpHearth4 = new Platform();
             platform = new Platform();
             platform1 = new Platform();
             platform2 = new Platform();
@@ -66,7 +76,7 @@ namespace Opinnaytetyo
             platform3.init(Loading.platformImage, new Vector2(150, 100));
             platform4.init(Loading.platformImage, new Vector2(250, 250));
             platform5.init(Loading.platformImage, new Vector2(325, 100));
-
+                                  
             // Temporary stuff
             testEnm = new Enemy(Loading.soldierImage, Loading.soldierImage, new Vector2(0, 0), MainGame.enemyClass.NORMAL);
             testEnm.Position = new Vector2(200, 395 - testEnm.Texture.Height);
@@ -79,6 +89,12 @@ namespace Opinnaytetyo
             reapEnm = new Enemy(Loading.reaperImage, Loading.reaphitImage, new Vector2(0, 0), MainGame.enemyClass.REAPER);
             reapEnm.Position = new Vector2(449, 395 - reapEnm.Texture.Height);
             reapEnm.init();
+
+            hpHearth.init(Loading.hpImage, new Vector2(10, 10));
+            hpHearth1.init(Loading.hpImage, new Vector2(30, 10));
+            hpHearth2.init(Loading.hpImage, new Vector2(50, 10));
+            hpHearth3.init(Loading.hpImage, new Vector2(70, 10));
+            hpHearth4.init(Loading.hpImage, new Vector2(90, 10));
 
             enemies.Add(testEnm);
             enemies.Add(mageEnm);
@@ -108,6 +124,28 @@ namespace Opinnaytetyo
             platform3.update(gameTime);
             platform4.update(gameTime);
             platform5.update(gameTime);
+
+            if (player.health <= 100 && player.health > 0)
+            {
+                hpHearth.update(gameTime);
+            }
+            if (player.health <= 200 && player.health > 100)
+            {
+                hpHearth1.update(gameTime);
+            }
+            if (player.health <= 300 && player.health > 200)
+            {
+                hpHearth2.update(gameTime);
+            }
+            if (player.health <= 400 && player.health > 300)
+            {
+                hpHearth3.update(gameTime);
+            }
+            if (player.health <= 500 && player.health > 400)
+            {
+                hpHearth4.update(gameTime);
+            }
+
             player.update(gameTime);
 
             for (int i = 0; i < enemies.Count; i++)
@@ -137,8 +175,39 @@ namespace Opinnaytetyo
                 platform5.render(batch);
                 player.render(batch);
 
-                batch.DrawString(Loading.mainFont, "SCORE: " + score, new Vector2(650, 70), Color.White);
-                batch.DrawString(Loading.mainFont, "HEALTH: " + player.health, new Vector2(650, 30), Color.White);
+                if (player.health <= 100 && player.health > 0)
+                {
+                    hpHearth.render(batch);
+                }
+                if (player.health <= 200 && player.health > 100)
+                {
+                    hpHearth.render(batch);
+                    hpHearth1.render(batch);
+                }
+                if (player.health <= 300 && player.health > 200)
+                {
+                    hpHearth.render(batch);
+                    hpHearth1.render(batch);
+                    hpHearth2.render(batch);
+                }
+                if (player.health <= 400 && player.health > 300)
+                {
+                    hpHearth.render(batch);
+                    hpHearth1.render(batch);
+                    hpHearth2.render(batch);
+                    hpHearth3.render(batch);
+                }
+                if (player.health <= 500 && player.health > 400)
+                {
+                    hpHearth.render(batch);
+                    hpHearth1.render(batch);
+                    hpHearth2.render(batch);
+                    hpHearth3.render(batch);
+                    hpHearth4.render(batch);
+                }
+
+                batch.DrawString(Loading.mainFont, "" + score, new Vector2(700, 2), Color.White);
+                batch.DrawString(Loading.mainFont, "HEALTH: " + player.health, new Vector2(120, 2), Color.White);
 
                 for (int i = 0; i < enemies.Count; i++)
                 {

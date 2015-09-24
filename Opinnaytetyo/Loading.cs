@@ -35,9 +35,12 @@ namespace Opinnaytetyo
         public static Texture2D exitButtonImage;
         public static Texture2D platformImage;
         public static Texture2D nextImage;
+        public static Texture2D hpImage;
         public static BitmapFont mainFont;
         public static SoundEffect shootSound;
         public static SoundEffect levelChangeSound;
+        public static SoundEffect jumpSound;
+        public static SoundEffect fireballSound;
 
         public static Texture2D loading1Tex;
         public static Background loading1;
@@ -104,9 +107,13 @@ namespace Opinnaytetyo
             exitButtonImage = content.Load<Texture2D>("Exit.png");
             nextImage = content.Load<Texture2D>("NEXT.png");
             platformImage = content.Load<Texture2D>("platform.png");
+            hpImage = content.Load<Texture2D>("HP.png");
             mainFont = content.Load<BitmapFont>("mainFont");
             shootSound = content.Load<SoundEffect>("shoot.wav");
             levelChangeSound = content.Load<SoundEffect>("levelChange.wav");
+            jumpSound = content.Load<SoundEffect>("JUMPVOICE.wav");
+            fireballSound = content.Load<SoundEffect>("fireball.wav");
+
 
             // Thread.Sleep(2500);
 
@@ -127,6 +134,7 @@ namespace Opinnaytetyo
             fireballImage.Dispose();
             banditImage.Dispose();
             platformImage.Dispose();
+            hpImage.Dispose();
         }
 
         public void update(GameTime gameTime)

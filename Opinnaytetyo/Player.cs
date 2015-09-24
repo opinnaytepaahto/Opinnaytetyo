@@ -169,9 +169,10 @@ namespace Opinnaytetyo
             if ((InputManager.isKeyJustDown(Keys.W) || InputManager.isKeyJustDown(Keys.Up)) && jCooldown <= 0)
             {
                 jCooldown = 0.5f;
+                Loading.jumpSound.Play();
                 Velocity -= Vector2.UnitY * 30.0f;
             }
-            if ((InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down)) && Hitbox.Bottom <= MainMenu.ground.Hitbox.Top - 1)
+            if ((InputManager.isKeyDown(Keys.S) || InputManager.isKeyDown(Keys.Down)) && Hitbox.Bottom <= MainMenu.ground.Hitbox.Top - 1 )
             {
                 collide = false;
             }

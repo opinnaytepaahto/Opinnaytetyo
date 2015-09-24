@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Opinnaytetyo
 {
@@ -28,12 +29,17 @@ namespace Opinnaytetyo
                 {
                     case "play":
                         Loading.levelChangeSound.Play();
+                        Thread.Sleep(1500);
                         MainGame.currentState = MainGame.state.PLAY;
                         break;
                     case "exit":
+                        Loading.levelChangeSound.Play();
+                        Thread.Sleep(1500);
                         MainGame.currentState = MainGame.state.EXIT;
                         break;
                     case "NEXT":
+                        Loading.levelChangeSound.Play();
+                        Thread.Sleep(1500);
                         GameStage.currentLevel = GameStage.Level.LEVEL2;
                         break;
                 }

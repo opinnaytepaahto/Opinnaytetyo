@@ -38,6 +38,8 @@ namespace Opinnaytetyo
         {
             base.update(gameTime);
 
+            Console.WriteLine(Speed);
+
             if (flipped)
             {
                  Position -= new Vector2(Speed, 0);
