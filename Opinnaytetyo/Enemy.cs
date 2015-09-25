@@ -96,6 +96,7 @@ namespace Opinnaytetyo
 
                 if (health <= 0)
                 {
+                    Loading.enmDeath.Play();
                     needsKill = true;
                 }
 

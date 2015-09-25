@@ -23,7 +23,6 @@ C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytety
 C:\Users\Spaceman\Documents\Visual Studio 2015\Projects\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.csprojResolveAssemblyReference.cache
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.exe
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\obj\x86\Debug\Opinnaytetyo.pdb
-C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\player.png
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Opinnaytetyo.exe
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Opinnaytetyo.pdb
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\MonoGame.Framework.dll
@@ -145,3 +144,22 @@ C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\C
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\falldmg.wav
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\enmshot.wav
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\fireball.wav
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Opinnaytetyo.exe.config
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\mainFont.xnb
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\mainFont_0.xnb
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\enmdie.wav
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\enmshot.wav
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\falldmg.wav
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\fireball.wav
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\HP.png
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\JUMPVOICE.wav
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\levelChange.wav
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\NEXT.png
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\OpenAL32.dll
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Reaper.png
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Reaperhit.png
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\shoot.wav
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\wizard.png
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\wrap_oal.dll
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\MonoGame.Extended.dll
+C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Newtonsoft.Json.dll
