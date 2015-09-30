@@ -94,7 +94,10 @@ namespace Opinnaytetyo
             loading = false;
 
             wizardImage = content.Load<Texture2D>("wizard.png");
-            spacemanImage = content.Load<Texture2D>("Spaceman.png");
+            // spacemanImage = content.Load<Texture2D>("Spaceman.png");
+
+            spacemanImage = content.Load<Texture2D>("Ranger.png");
+
             soldierImage = content.Load<Texture2D>("soldier.png");
             reaperImage = content.Load<Texture2D>("reaper.png");
             reaphitImage = content.Load<Texture2D>("reaperhit.png");
