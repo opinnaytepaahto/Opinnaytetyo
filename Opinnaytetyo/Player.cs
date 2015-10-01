@@ -184,14 +184,14 @@ namespace Opinnaytetyo
             if ((InputManager.isKeyDown(Keys.Space)) && sCooldown <= 0)
             {
                 Loading.shootSound.Play();
-                sCooldown = 0.7f;
+                sCooldown = 0.3f;
                 if (flipped)
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X - 10, Position.Y + 20), flipped, "kuti", 10.0f, 1.5f));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X - 23, Position.Y + 20), flipped, "kuti", 10.0f, 1.5f));
                 }
                 else
                 {
-                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X + 15, Position.Y + 20), flipped, "kuti", 10.0f, 1.5f));
+                    bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X + 23, Position.Y + 20), flipped, "kuti", 10.0f, 1.5f));
                 }
             }
         }

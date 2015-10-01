@@ -92,7 +92,7 @@ namespace Opinnaytetyo
 
             if (hit)
             {
-                health -= 50;
+                health -= 25;
 
                 if (health <= 0)
                 {
@@ -175,6 +175,7 @@ namespace Opinnaytetyo
         {
             if (shootTimer <= 0 && Player.playerRectangleStatic.Bottom > Hitbox.Top && Player.playerRectangleStatic.Top < Hitbox.Bottom)
             {
+                Loading.shootSound.Play();
                 shootTimer = 1.5f;
                 if (flipped)
                 {

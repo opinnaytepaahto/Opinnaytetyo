@@ -104,7 +104,10 @@ namespace Opinnaytetyo
             backgroundImage1 = content.Load<Texture2D>("palmuict.png");
             backgroundImage2 = content.Load<Texture2D>("ICTG.png");
             fireballImage = content.Load<Texture2D>("fireball.png");
-            bulletImage = content.Load<Texture2D>("spacebullet.png");
+            // bulletImage = content.Load<Texture2D>("spacebullet.png");
+
+            bulletImage = content.Load<Texture2D>("soldierbullet.png");
+
             soldierBulletImage = content.Load<Texture2D>("soldierbullet.png");
             banditImage = content.Load<Texture2D>("bandit.png");
             playButtonImage = content.Load<Texture2D>("Play.png");
@@ -113,7 +116,10 @@ namespace Opinnaytetyo
             platformImage = content.Load<Texture2D>("platform.png");
             hpImage = content.Load<Texture2D>("HP.png");
             mainFont = content.Load<BitmapFont>("mainFont");
-            shootSound = content.Load<SoundEffect>("shoot.wav");
+            // shootSound = content.Load<SoundEffect>("shoot.wav");
+
+            shootSound = content.Load<SoundEffect>("enmshot.wav");
+
             levelChangeSound = content.Load<SoundEffect>("levelChange.wav");
             jumpSound = content.Load<SoundEffect>("JUMPVOICE.wav");
             fireballSound = content.Load<SoundEffect>("fireball.wav");

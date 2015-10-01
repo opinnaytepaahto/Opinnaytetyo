@@ -164,3 +164,5 @@ C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Co
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\MonoGame.Extended.dll
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Newtonsoft.Json.dll
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Ranger.png
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Ranger.png
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\bshot.wav

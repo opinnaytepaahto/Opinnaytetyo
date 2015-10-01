@@ -82,6 +82,9 @@
     <Content Include="Content\bandit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\bshot.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\enmdie.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
