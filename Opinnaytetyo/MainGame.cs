@@ -146,7 +146,7 @@ namespace Opinnaytetyo
                     mainMenu.update(gameTime);
                     break;
                 case state.PLAY:
-                    if (!Level1.initialized)
+                    if (!Level2.initialized)
                     {
                         gameStage.init();
                     }

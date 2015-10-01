@@ -194,6 +194,11 @@ namespace Opinnaytetyo
                     bullets.Add(new Projectile(Loading.bulletImage, new Vector2(Position.X + 23, Position.Y + 20), flipped, "kuti", 10.0f, 1.5f));
                 }
             }
+
+            if (InputManager.isKeyDown(Keys.Escape))
+            {
+                Loading.levelChangeSound.Play();
+            }
         }
 
         private void applyFrictionAndGravity()

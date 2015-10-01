@@ -57,9 +57,9 @@ namespace Opinnaytetyo
         public void render(GameTime gameTime, SpriteBatch batch)
         {
             background.render(batch);
+            player.render(batch);
             playButton.render(batch);
             exitButton.render(batch);
-            player.render(batch);
         }
     }
 }

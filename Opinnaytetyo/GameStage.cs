@@ -11,8 +11,10 @@ namespace Opinnaytetyo
 {
     class GameStage
     {
-        private Level1 level1;
+        private Level2 level1;
         private Level2 level2;
+
+        public static int score;
 
         public enum Level
         {
@@ -20,14 +22,14 @@ namespace Opinnaytetyo
             LEVEL2
         }
 
-        public static Level currentLevel;
+        public static Level CurrentLevel { get; set; }
 
         public GameStage()
         {
-            switch(currentLevel)
+            switch(CurrentLevel)
             {
                 case Level.LEVEL1:
-                    level1 = new Level1();
+                    level1 = new Level2();
                     break;
                 case Level.LEVEL2:
                     level2 = new Level2();
@@ -37,12 +39,13 @@ namespace Opinnaytetyo
 
         public void init()
         {
-            switch (currentLevel)
+            switch (CurrentLevel)
             {
                 case Level.LEVEL1:
                     level1.init();
                     break;
                 case Level.LEVEL2:
+                    level2 = new Level2();
                     level2.init();
                     break;
             }
@@ -50,7 +53,7 @@ namespace Opinnaytetyo
        
         public void update(GameTime gameTime)
         {
-            switch (currentLevel)
+            switch (CurrentLevel)
             {
                 case Level.LEVEL1:
                     level1.update(gameTime);
@@ -63,12 +66,16 @@ namespace Opinnaytetyo
 
         public void render(GameTime gameTime, SpriteBatch batch)
         {
-            switch (currentLevel)
+            switch (CurrentLevel)
             {
                 case Level.LEVEL1:
                     level1.render(gameTime, batch);
                     break;
                 case Level.LEVEL2:
+                    if (level2 == null)
+                    {
+                        init();
+                    }
                     level2.render(gameTime, batch);
                     break;
             }

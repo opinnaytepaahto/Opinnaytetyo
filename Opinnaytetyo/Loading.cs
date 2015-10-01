@@ -42,6 +42,7 @@ namespace Opinnaytetyo
         public static SoundEffect jumpSound;
         public static SoundEffect fireballSound;
         public static SoundEffect enmDeath;
+        public static SoundEffect backgroundMusic1;
 
         public static Texture2D loading1Tex;
         public static Background loading1;
@@ -118,12 +119,14 @@ namespace Opinnaytetyo
             mainFont = content.Load<BitmapFont>("mainFont");
             // shootSound = content.Load<SoundEffect>("shoot.wav");
 
-            shootSound = content.Load<SoundEffect>("enmshot.wav");
+            shootSound = content.Load<SoundEffect>("sniperrifle.wav");
 
             levelChangeSound = content.Load<SoundEffect>("levelChange.wav");
             jumpSound = content.Load<SoundEffect>("JUMPVOICE.wav");
             fireballSound = content.Load<SoundEffect>("fireball.wav");
             enmDeath = content.Load<SoundEffect>("enmdie.wav");
+            backgroundMusic1 = content.Load<SoundEffect>("backgroundmusic1.wav");
+
 
 
             // Thread.Sleep(2500);

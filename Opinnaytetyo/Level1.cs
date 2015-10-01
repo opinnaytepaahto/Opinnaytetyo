@@ -30,8 +30,6 @@ namespace Opinnaytetyo
         private Platform platform4;
         private Platform platform5;
 
-        private int score;
-
         // Temporary stuff
         private Enemy testEnm;
         private Enemy mageEnm;
@@ -61,8 +59,6 @@ namespace Opinnaytetyo
 
             collidables = new ArrayList();
             enemies = new List<Enemy>();
-
-            score = 0;
         }
 
         public void init()
@@ -86,7 +82,7 @@ namespace Opinnaytetyo
             mageEnm.Position = new Vector2(449, 145 - mageEnm.Texture.Height);
             mageEnm.init();
 
-            reapEnm = new Enemy(Loading.reaperImage, Loading.reaphitImage, new Vector2(0, 0), MainGame.enemyClass.REAPER);
+            reapEnm = new Enemy(Loading.reaperImage, Loading.reaperImage, new Vector2(0, 0), MainGame.enemyClass.REAPER);
             reapEnm.Position = new Vector2(449, 395 - reapEnm.Texture.Height);
             reapEnm.init();
 
@@ -100,9 +96,6 @@ namespace Opinnaytetyo
             enemies.Add(mageEnm);
             enemies.Add(reapEnm);
 
-            collidables.Add(testEnm);
-            collidables.Add(mageEnm);
-            collidables.Add(reapEnm);
             collidables.Add(ground);
             collidables.Add(nextButton);
             collidables.Add(platform);
@@ -155,8 +148,7 @@ namespace Opinnaytetyo
                 if (enemies[i].needsKill)
                 {
                     enemies.RemoveAt(i);
-                    collidables.RemoveAt(i);
-                    score += 10;
+                    GameStage.score += 10;
                 }
             }
         }
@@ -166,7 +158,6 @@ namespace Opinnaytetyo
             if (initialized)
             {
                 background.render(batch);
-                nextButton.render(batch);
                 platform.render(batch);
                 platform1.render(batch);
                 platform2.render(batch);
@@ -174,6 +165,7 @@ namespace Opinnaytetyo
                 platform4.render(batch);
                 platform5.render(batch);
                 player.render(batch);
+                nextButton.render(batch);
 
                 if (player.health <= 100 && player.health > 0)
                 {
@@ -206,7 +198,7 @@ namespace Opinnaytetyo
                     hpHearth4.render(batch);
                 }
 
-                batch.DrawString(Loading.mainFont, "" + score, new Vector2(700, 2), Color.White);
+                batch.DrawString(Loading.mainFont, "" + GameStage.score, new Vector2(700, 2), Color.White);
                 batch.DrawString(Loading.mainFont, "HEALTH: " + player.health, new Vector2(120, 2), Color.White);
 
                 for (int i = 0; i < enemies.Count; i++)

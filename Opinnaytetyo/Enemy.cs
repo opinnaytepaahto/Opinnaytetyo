@@ -106,13 +106,21 @@ namespace Opinnaytetyo
             if (Player.playerPosStatic.X < Position.X)
             {
                 flipped = true;
-                Velocity -= Vector2.UnitX * speed;
+
+                if (Player.playerPosStatic.Y > Hitbox.Top && Player.playerPosStatic.Y < Hitbox.Bottom)
+                {
+                    Velocity -= Vector2.UnitX * speed;
+                }
             }
 
             else
             {
                 flipped = false;
-                Velocity += Vector2.UnitX * speed;
+
+                if (Player.playerPosStatic.Y > Hitbox.Top && Player.playerPosStatic.Y < Hitbox.Bottom)
+                {
+                    Velocity += Vector2.UnitX * speed;
+                }
             }
 
             for (int i = 0; i < enemyBullets.Count; i++)
@@ -211,11 +219,11 @@ namespace Opinnaytetyo
             {
                 if (flipped)
                 {
-                    enemyBullets.Add(new Projectile(Loading.reaphitImage, new Vector2(Position.X - 0, Position.Y + 0), flipped, "reaper", 10.0f, 0.5f));
+                    enemyBullets.Add(new Projectile(Loading.reaperImage, new Vector2(Position.X - 0, Position.Y + 0), flipped, "reaper", 10.0f, 0.5f));
                 }
                 else
                 {
-                    enemyBullets.Add(new Projectile(Loading.reaphitImage, new Vector2(Position.X + 0, Position.Y + 0), flipped, "reaper", 10.0f, 0.5f));
+                    enemyBullets.Add(new Projectile(Loading.reaperImage, new Vector2(Position.X + 0, Position.Y + 0), flipped, "reaper", 10.0f, 0.5f));
                 }
             }
         }
@@ -232,6 +240,7 @@ namespace Opinnaytetyo
         private void moveIfPossible()
         {
             oldPos = Position;
+
             Position += Velocity * (float)gameTime.ElapsedGameTime.TotalMilliseconds / 15;
 
             Position = howLongToMove(oldPos, Position, Hitbox);

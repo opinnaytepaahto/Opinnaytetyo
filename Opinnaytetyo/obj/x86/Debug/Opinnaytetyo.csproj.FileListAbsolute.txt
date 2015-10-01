@@ -166,3 +166,5 @@ C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Ne
 C:\Users\tuoma\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Ranger.png
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\Ranger.png
 C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\bshot.wav
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\sniperrifle.wav
+C:\Users\Ranger\Documents\GitHub\Opinnaytetyo\Opinnaytetyo\bin\WindowsGL\Debug\Content\backgroundmusic1.wav

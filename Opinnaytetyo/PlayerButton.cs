@@ -31,6 +31,7 @@ namespace Opinnaytetyo
                         Loading.levelChangeSound.Play();
                         Thread.Sleep(1500);
                         MainGame.currentState = MainGame.state.PLAY;
+                        Loading.backgroundMusic1.Play();
                         break;
                     case "exit":
                         Loading.levelChangeSound.Play();
@@ -40,7 +41,7 @@ namespace Opinnaytetyo
                     case "NEXT":
                         Loading.levelChangeSound.Play();
                         Thread.Sleep(1500);
-                        GameStage.currentLevel = GameStage.Level.LEVEL2;
+                        GameStage.CurrentLevel = GameStage.Level.LEVEL2;
                         break;
                 }
             }

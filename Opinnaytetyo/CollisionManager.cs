@@ -22,7 +22,7 @@ namespace Opinnaytetyo
                     }
                     break;
                 case MainGame.state.PLAY:
-                    foreach (Entity e in Level1.collidables)
+                    foreach (Entity e in Level2.collidables)
                     {
                         if (bounds.Intersects(e.Hitbox))
                         {
@@ -37,13 +37,13 @@ namespace Opinnaytetyo
 
         public static void bulletCollision(List<Projectile> bullets)
         {
-            for (int i = 0; i < Level1.enemies.Count; i++)
+            for (int i = 0; i < Level2.enemies.Count; i++)
             {
                 for (int j = 0; j < bullets.Count; j++)
                 {
-                    if (Level1.enemies[i].Hitbox.Intersects(bullets[j].Hitbox))
+                    if (Level2.enemies[i].Hitbox.Intersects(bullets[j].Hitbox))
                     {
-                        Level1.enemies[i].hit = true;
+                        Level2.enemies[i].hit = true;
                         bullets.RemoveAt(j);
                     }
                 }
@@ -58,29 +58,29 @@ namespace Opinnaytetyo
                 {
                     if (Player.playerRectangleStatic.Intersects(enemyBullets[i].Hitbox))
                     {
-                        if (GameStage.currentLevel == GameStage.Level.LEVEL1)
+                        if (GameStage.CurrentLevel == GameStage.Level.LEVEL1)
                         {
-                            Level1.player.hit = true;
+                            Level2.player.hit = true;
 
                             if (enemyBullets[i].id == "soldier")
                             {
-                                Level1.player.currentHit = Player.HitType.SOLDIER;
+                                Level2.player.currentHit = Player.HitType.SOLDIER;
                             }
 
                             if (enemyBullets[i].id == "magic")
                             {
-                                Level1.player.currentHit = Player.HitType.MAGIC;
+                                Level2.player.currentHit = Player.HitType.MAGIC;
                             }
 
                             if (enemyBullets[i].id == "reaper")
                             {
-                                Level1.player.currentHit = Player.HitType.REAPER;
+                                Level2.player.currentHit = Player.HitType.REAPER;
                             }
 
                             enemyBullets.RemoveAt(i);
                         }
 
-                        if (GameStage.currentLevel == GameStage.Level.LEVEL2)
+                        if (GameStage.CurrentLevel == GameStage.Level.LEVEL2)
                         {
                             Level2.player.hit = true;
 
@@ -90,11 +90,11 @@ namespace Opinnaytetyo
                             }
                             if (enemyBullets[i].id == "magic")
                             {
-                                Level1.player.currentHit = Player.HitType.MAGIC;
+                                Level2.player.currentHit = Player.HitType.MAGIC;
                             }
                             if (enemyBullets[i].id == "reaper")
                             {
-                                Level1.player.currentHit = Player.HitType.REAPER;
+                                Level2.player.currentHit = Player.HitType.REAPER;
                             }
 
                             enemyBullets.RemoveAt(i);
