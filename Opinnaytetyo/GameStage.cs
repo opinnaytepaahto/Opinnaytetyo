@@ -11,7 +11,7 @@ namespace Opinnaytetyo
 {
     class GameStage
     {
-        private Level2 level1;
+        private Level1 level1;
         private Level2 level2;
 
         public static int score;
@@ -21,15 +21,17 @@ namespace Opinnaytetyo
             LEVEL1,
             LEVEL2
         }
-
+        // LEVEL1
         public static Level CurrentLevel { get; set; }
 
         public GameStage()
         {
+            CurrentLevel = Level.LEVEL1;
+
             switch(CurrentLevel)
             {
                 case Level.LEVEL1:
-                    level1 = new Level2();
+                    level1 = new Level1();
                     break;
                 case Level.LEVEL2:
                     level2 = new Level2();
@@ -45,7 +47,6 @@ namespace Opinnaytetyo
                     level1.init();
                     break;
                 case Level.LEVEL2:
-                    level2 = new Level2();
                     level2.init();
                     break;
             }
@@ -69,12 +70,17 @@ namespace Opinnaytetyo
             switch (CurrentLevel)
             {
                 case Level.LEVEL1:
+                    if (!Level1.initialized)
+                    {
+                        level1.init();
+                    }
                     level1.render(gameTime, batch);
                     break;
                 case Level.LEVEL2:
-                    if (level2 == null)
+                    if (!Level2.initialized)
                     {
-                        init();
+                        level2 = new Level2();
+                        level2.init();
                     }
                     level2.render(gameTime, batch);
                     break;

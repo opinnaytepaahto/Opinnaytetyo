@@ -106,6 +106,8 @@ namespace Opinnaytetyo
             collidables.Add(platform5);
 
             initialized = true;
+
+            Console.WriteLine("Sepeteus Level 1");
         }
 
         public void update(GameTime gameTime)

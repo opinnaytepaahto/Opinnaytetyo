@@ -65,7 +65,7 @@ namespace Opinnaytetyo
         {
             background.init(Loading.backgroundImage2, new Vector2(0, 0));
             player.init(Loading.spacemanImage, new Vector2(0, 340));
-            nextButton.init(Loading.nextImage, new Vector2(100, 200), "NEXT");
+            nextButton.init(Loading.nextImage, new Vector2(600, 200), "NEXT");
             platform.init(Loading.platformImage, new Vector2(525, 300));
             platform1.init(Loading.platformImage, new Vector2(375, 250));
             platform2.init(Loading.platformImage, new Vector2(450, 150));
@@ -106,6 +106,8 @@ namespace Opinnaytetyo
             collidables.Add(platform5);
 
             initialized = true;
+
+            Console.WriteLine("Sepeteus Level2");
         }
 
         public void update(GameTime gameTime)
