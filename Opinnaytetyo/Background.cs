@@ -21,7 +21,7 @@ namespace Opinnaytetyo
 
             this.Hitbox = texture.Bounds;
 
-            backImgWidth = 2450.0f;
+            backImgWidth = 2560.0f;
             backImgHeight = 1440.0f;
 
             scale = new Vector2(MainGame.windowWidth / backImgWidth, MainGame.windowHeight / backImgHeight);

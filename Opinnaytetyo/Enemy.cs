@@ -67,6 +67,7 @@ namespace Opinnaytetyo
 
                 case MainGame.enemyClass.REAPER:
                     health = 150;
+                    speed = 0.5f;
                     break;
             }
         }

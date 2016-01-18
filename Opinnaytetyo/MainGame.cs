@@ -42,6 +42,7 @@ namespace Opinnaytetyo
         private Loading loading;
         private MainMenu mainMenu;
         private GameStage gameStage;
+        private GameOver gameOver;
 
         public MainGame()
         {
@@ -52,6 +53,7 @@ namespace Opinnaytetyo
             loading = new Loading(Content);
             mainMenu = new MainMenu();
             gameStage = new GameStage();
+            gameOver = new GameOver();
         }
 
         /// <summary>
@@ -149,7 +151,11 @@ namespace Opinnaytetyo
                     gameStage.update(gameTime);
                     break;
                 case state.EXIT:
-                    Exit();
+                    if (!GameOver.initialized)
+                    {
+                        gameOver.init();
+                    }
+                    gameOver.update(gameTime);
                     break;
 
             }
@@ -163,7 +169,7 @@ namespace Opinnaytetyo
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 
@@ -180,6 +186,13 @@ namespace Opinnaytetyo
                     break;
                 case state.PLAY:
                     gameStage.render(gameTime, spriteBatch);
+                    break;
+                case state.EXIT:
+                    if (!GameOver.initialized)
+                    {
+                        gameOver.init();
+                    }
+                    gameOver.render(gameTime, spriteBatch);
                     break;
 
             }

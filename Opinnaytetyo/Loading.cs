@@ -27,6 +27,7 @@ namespace Opinnaytetyo
         public static Texture2D reaphitImage;
         public static Texture2D backgroundImage1;
         public static Texture2D backgroundImage2;
+        public static Texture2D hellBground;
         public static Texture2D fireballImage;
         public static Texture2D bulletImage;
         public static Texture2D soldierBulletImage;
@@ -56,6 +57,9 @@ namespace Opinnaytetyo
         public static Texture2D loading4Tex;
         public static Background loading4;
 
+        public static Texture2D feOpeningImage;
+        public static Background feOpeningImageBackground;
+
         public Loading(ContentManager content)
         {
             this.content = content;
@@ -65,6 +69,7 @@ namespace Opinnaytetyo
             loading2 = new Background();
             loading3 = new Background();
             loading4 = new Background();
+            feOpeningImageBackground = new Background();
         }
 
         public void init()
@@ -92,6 +97,9 @@ namespace Opinnaytetyo
             loading4Tex = content.Load<Texture2D>("LOADING3.png");
             loading4.init(loading1Tex, new Vector2(0, 0));;
 
+            feOpeningImage = content.Load<Texture2D>("FEBGP.jpg");
+            feOpeningImageBackground.init(feOpeningImage, new Vector2(0, 0));
+
             loading = false;
 
             wizardImage = content.Load<Texture2D>("wizard.png");
@@ -104,6 +112,7 @@ namespace Opinnaytetyo
             reaphitImage = content.Load<Texture2D>("reaperhit.png");
             backgroundImage1 = content.Load<Texture2D>("palmuict.png");
             backgroundImage2 = content.Load<Texture2D>("ICTG.png");
+            hellBground = content.Load<Texture2D>("hell.1.jpg");
             fireballImage = content.Load<Texture2D>("fireball.png");
             // bulletImage = content.Load<Texture2D>("spacebullet.png");
 
@@ -144,6 +153,8 @@ namespace Opinnaytetyo
             wizardImage.Dispose();
             backgroundImage1.Dispose();
             backgroundImage2.Dispose();
+            hellBground.Dispose();
+            feOpeningImage.Dispose();
             loading1Tex.Dispose();
             fireballImage.Dispose();
             banditImage.Dispose();
@@ -160,7 +171,7 @@ namespace Opinnaytetyo
         {
             if (!loading)
             {
-                loading1.render(batch);
+                feOpeningImageBackground.render(batch);
             }
             
             if (loadingComplete)

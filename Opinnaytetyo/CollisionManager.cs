@@ -30,6 +30,16 @@ namespace Opinnaytetyo
                         }
                     }
                     break;
+
+                case MainGame.state.EXIT:
+                    foreach (Entity e in GameOver.collidables)
+                    {
+                        if (bounds.Intersects(e.Hitbox))
+                        {
+                            return false;
+                        }
+                    }
+                    break;
             }
 
             return true;

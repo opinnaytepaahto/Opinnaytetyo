@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Ranger/Documents/GitHub/Opinnaytetyo/Opinnaytetyo/Content/mainFont.fnt</SourceFile>
-  <SourceTime>2015-09-10T12:30:52.6936792+03:00</SourceTime>
+  <SourceTime>2016-01-18T12:29:57.7225929+02:00</SourceTime>
   <DestFile>C:/Users/Ranger/Documents/GitHub/Opinnaytetyo/Opinnaytetyo/Content/bin/WindowsGL/mainFont.xnb</DestFile>
-  <DestTime>2015-10-05T11:28:55.5294981+03:00</DestTime>
+  <DestTime>2016-01-18T12:30:13.8705026+02:00</DestTime>
   <Importer>BitmapFontImporter</Importer>
-  <ImporterTime>2015-09-10T12:30:52.9191496+03:00</ImporterTime>
+  <ImporterTime>2016-01-18T12:29:58.5516514+02:00</ImporterTime>
   <Processor>BitmapFontProcessor</Processor>
-  <ProcessorTime>2015-09-10T12:30:52.9191496+03:00</ProcessorTime>
+  <ProcessorTime>2016-01-18T12:29:58.5516514+02:00</ProcessorTime>
   <Dependencies />
   <BuildAsset />
   <BuildOutput />
